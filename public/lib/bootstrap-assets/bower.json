@@ -1,0 +1,17 @@
+{
+  "name"       : "bootstrap-assets",
+  "version"    : "2.3.2",
+  "repository" : {
+    "type" : "git",
+    "url"  : "git://github.com/srigi/html-bootstrap-assets.git"
+  },
+
+  "main": [
+    "./css/bootstrap.css",
+    "./js/bootstrap.js"
+  ],
+
+  "dependencies": {
+    "jquery": ">=1.8.0 <2.1.0"
+  }
+}

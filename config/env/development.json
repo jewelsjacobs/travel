@@ -4,13 +4,13 @@
         "name": "MEAN - A Modern Stack - Development"
     },
     "facebook": {
-        "clientID": "APP_ID",
-        "clientSecret": "APP_SECRET",
+        "clientID": "169669483229469",
+        "clientSecret": "5b2de5e44f56f0fcd57ee535f4445eb7",
         "callbackURL": "http://localhost:3000/auth/facebook/callback"
     },
     "twitter": {
-        "clientID": "CONSUMER_KEY",
-        "clientSecret": "CONSUMER_SECRET",
+        "clientID": "SODN9WKgnWTrlA0JSQpMA",
+        "clientSecret": "jhEK1a1LppSK0XwZl1ACsbysmO63fnBEkiac2tWHtM",
         "callbackURL": "http://localhost:3000/auth/twitter/callback"
     },
     "github": {
@@ -19,8 +19,8 @@
         "callbackURL": "http://localhost:3000/auth/github/callback"
     },
     "google": {
-        "clientID": "APP_ID",
-        "clientSecret": "APP_SECRET",
+        "clientID": "1032466646296.apps.googleusercontent.com",
+        "clientSecret": "gskhQ1mQOiTu2RPiDVkc_7gD",
         "callbackURL": "http://localhost:3000/auth/google/callback"
     }
 }
