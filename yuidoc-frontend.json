@@ -1,0 +1,11 @@
+{
+	"name": "travel",
+    "description": "Travel booking app",
+    "version": "0.0.0",
+    "url": "https://github.com/jjacobs2000/travel",
+    "options": {
+        "paths": "./app/src/",
+        "outdir": "yuidocs/frontend",
+        "exclude": "bower_components,build,deploys,test"
+    }
+}
