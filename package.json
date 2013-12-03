@@ -1,16 +1,16 @@
 {
-  "name": "moviemap",
-  "title": "MovieMap",
-  "description": "mashup",
+  "name": "travel",
+  "title": "Travel",
+  "description": "expedia hotel booking",
   "version": "0.0.1",
-  "homepage": "https://github.com/jewelsjacobs/moviemap",
+  "homepage": "https://bitbucket.org/jjacobs2000/travel",
   "author": {
     "name": "Julia Jacobs",
     "email": "jjacobs2000@me.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com:jewelsjacobs/moviemap.git"
+    "url": "git@bitbucket.org:jjacobs2000/travel.git"
   },
   "engines": {
     "node": "0.10.x"
@@ -18,8 +18,7 @@
   "dependencies": {
     "express": "~3.2.6",
     "ejs": "*",
-    "osmgeocoder": "0.0.1",
-    "freebase": "~2.1.14"
+    "expedia": "0.0.1"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
