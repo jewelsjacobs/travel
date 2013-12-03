@@ -37,7 +37,7 @@ var AuthApi = require(pathPart+'auth/auth.api.js');
 var UserApi = require(pathPart+'user/user.api.js');
 var FollowApi = require(pathPart+'follow/follow.api.js');
 //site-specific - require other api files here
-
+var ExpediaApi = require(pathPart+'expedia/expedia.api.js')
 
 
 /**
@@ -63,7 +63,9 @@ module.exports = function(cfg, server, db){
 		db: db
 	});
 	//site-specific - load other api's here
-
+    var expediaApi = new ExpediaApi({
+        db: db
+    })
 	
 	// set up auth middleware
 	// app.use( authMod.passport.initialize() );
@@ -99,8 +101,14 @@ module.exports = function(cfg, server, db){
 				follow: followApi
 			},
 			middleware: []
-		}
+		},
 		//site-specific - setup other controllers/api's here
+        expedia: {
+            modules: {
+                expedia: expediaApi
+            },
+            middleware: []
+        }
 	};
 
 	

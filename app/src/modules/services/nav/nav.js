@@ -159,7 +159,7 @@ var inst ={
 		this.components.headerCentered ={
 			template: self.paths.templates.headerCentered,
 			title: {
-				html: '[Title]'
+				html: 'Travel'
 			},
 			buttons: {
 				left: [
