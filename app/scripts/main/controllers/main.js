@@ -4,6 +4,6 @@
  * Global Controller
  */
 angular.module('movieMapApp')
-  .controller("MainCtrl", ['$scope', function ($scope) {
+  .controller("MainCtrl", ['$scope', function ($scope){
 
   }]);
