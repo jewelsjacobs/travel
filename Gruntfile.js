@@ -456,6 +456,10 @@ module.exports = function (grunt) {
     'usemin'
   ]);
 
+    grunt.registerTask('compile-less', [
+        'less:dev'
+    ]);
+
   grunt.registerTask('default', [
   //  'jshint',
  //   'test',

@@ -1,39 +1,52 @@
 'use strict';
 
-angular.module('movieMapApp', ['ngRoute', 'ngStorage', 'ngAnimate', 'ui.router', 'leaflet-directive', 'angularSpinner', 'ngSanitize', 'geolocation', 'restangular'])
-  .config(['$routeProvider', '$locationProvider', '$httpProvider', '$stateProvider', '$urlRouterProvider', function ($routeProvider, $locationProvider, $httpProvider, $stateProvider, $urlRouterProvider) {
-    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+angular.module('travelApp', ['ngRoute', 'ngStorage', 'ngAnimate', 'ui.router', 'ui.utils', 'angularSpinner', 'ngSanitize', 'restangular'])
+    .config(['$routeProvider', '$locationProvider', '$httpProvider', '$stateProvider', '$urlRouterProvider', function ($routeProvider, $locationProvider, $httpProvider, $stateProvider) {
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
+        $stateProvider
+            .state('main', {
+                url: '',
+                abstract: true,
+                views: {
+                    'header': {
+                        templateUrl: 'views/header.html',
+                        controller: 'HeaderCtrl'
+                    },
+                    'main': {
+                        templateUrl: 'views/main.html'
+                    }
+                }
+            })
+            .state('main.home', {
+                url: '/',
+                views: {
+                    'container@': {
+                        templateUrl: 'views/home.html'
+                    },
+                    'banner': {
+                        templateUrl: 'views/banner.html',
+                        controller: 'BannerCtrl'
+                    }
+                }
+            })
+            .state('main.list', {
+                url: '/list',
+                views: {
+                    'container@': {
+                        templateUrl: 'views/list.html'
+                    }
+                }
+            })
+        angular.forEach(statesList, function (state) {
+            $stateProvider.state(state.name, state.options);
+        })
 
-    $stateProvider
-      .state('main', {
-        templateUrl: "views/main.html",
-        controller: 'MainCtrl',
-        url: "/app"
-      })
-      .state('main.map', {
-        templateUrl: "views/main.map.html",
-        controller: 'MapCtrl',
-        url: "^/map/:lat/:lng/:name"
-      })
-      .state('samples', {
-        templateUrl: "views/samples/samples.html",
-        url: "/samples"
-      })
-      .state('samples.hitcounter', {
-        templateUrl: "views/samples/samples.hitcounter.html",
-        url: "/hitcounter"
-      })
-      .state('samples.xmlhr', {
-        templateUrl: "views/samples/samples.xmlhr.html",
-        url: "/xmlhr"
-      });
+        $locationProvider.html5Mode(true);
+    }])
+    .run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
+        $rootScope.loading = false;
+        $rootScope.$state = $state;
+        $rootScope.$stateParams = $stateParams;
+        $state.transitionTo('main.home');
+    }]);
 
-    $urlRouterProvider
-      .when('/', '/app')
-      .when('/samples', '/samples');
-
-    $locationProvider.html5Mode(true);
-  }])
-  .run(function($rootScope) {
-    $rootScope.loading = false;
-});

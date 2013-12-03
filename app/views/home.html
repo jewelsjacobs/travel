@@ -1,0 +1,820 @@
+<!--search-->
+<div class="container mt-200 z-index100">
+<div class="row">
+<div class="col-md-4">
+<div class="bs-example bs-example-tabs cstyle04">
+
+<ul class="nav nav-tabs" id="myTab">
+    <li onclick="mySelectUpdate()" class="active"><a data-toggle="tab" href="#air"><span class="flight"></span> Air</a></li>
+    <li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#hotel"><span class="hotel"></span>Hotel</a></li>
+    <li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#car"><span class="car"></span>Car</a></li>
+    <li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#vacations"><span class="suitcase"></span>Vacations</a></li>
+</ul>
+
+<div class="tab-content3" id="myTabContent">
+<div id="air" class="tab-pane fade active in">
+
+    <div class="w50percent">
+        <div class="wh90percent textleft">
+            <span class="opensans size13"><b>Flying from</b></span>
+            <input type="text" class="form-control" placeholder="City or airport">
+        </div>
+    </div>
+
+    <div class="w50percentlast">
+        <div class="wh90percent textleft right">
+            <span class="opensans size13"><b>To</b></span>
+            <input type="text" class="form-control" placeholder="City or airport">
+        </div>
+    </div>
+
+
+    <div class="clearfix"></div><br/>
+
+    <div class="w50percent">
+        <div class="wh90percent textleft">
+            <span class="opensans size13"><b>Departing</b></span>
+            <input type="text" class="form-control mySelectCalendar" id="datepicker3" placeholder="mm/dd/yyyy"/>
+        </div>
+    </div>
+
+    <div class="w50percentlast">
+        <div class="wh90percent textleft right">
+            <span class="opensans size13"><b>Returning</b></span>
+            <input type="text" class="form-control mySelectCalendar" id="datepicker4" placeholder="mm/dd/yyyy"/>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="room1 margtop15">
+        <div class="w50percent">
+            <div class="wh90percent textleft">
+                <span class="opensans size13"><b>Adult</b></span>
+                <select class="form-control mySelectBoxClass">
+                    <option>1</option>
+                    <option selected>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="w50percentlast">
+            <div class="wh90percent textleft right">
+                <span class="opensans size13"><b>Child</b></span>
+                <select class="form-control mySelectBoxClass">
+                    <option>0</option>
+                    <option selected>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--End of 1st tab -->
+
+<div id="hotel" class="tab-pane fade">
+
+    <span class="opensans size18">Where do you want to go?</span>
+    <input type="text" class="form-control" placeholder="Greece">
+
+    <br/>
+
+    <div class="w50percent">
+        <div class="wh90percent textleft">
+            <span class="opensans size13"><b>Check in date</b></span>
+            <input type="text" class="form-control mySelectCalendar" id="datepicker" placeholder="mm/dd/yyyy"/>
+        </div>
+    </div>
+
+    <div class="w50percentlast">
+        <div class="wh90percent textleft right">
+            <span class="opensans size13"><b>Check in date</b></span>
+            <input type="text" class="form-control mySelectCalendar" id="datepicker2" placeholder="mm/dd/yyyy"/>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="room1 margtop15">
+        <div class="w50percent">
+            <div class="wh90percent textleft">
+                <span class="opensans size13"><b>ROOM 1</b></span><br/>
+
+                <div class="addroom1 block"><a href="#room2" onclick="addroom2()" class="grey">+ Add room</a></div>
+            </div>
+        </div>
+
+        <div class="w50percentlast">
+            <div class="wh90percent textleft right ohidden">
+                <div class="w50percent">
+                    <div class="wh90percent textleft left">
+                        <span class="opensans size13"><b>Adult</b></span>
+                        <select class="form-control mySelectBoxClass">
+                            <option>1</option>
+                            <option selected>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="w50percentlast">
+                    <div class="wh90percent textleft right ohidden">
+                        <span class="opensans size13"><b>Child</b></span>
+                        <select class="form-control mySelectBoxClass">
+                            <option>0</option>
+                            <option selected>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="room2 none">
+        <div class="clearfix"></div><div class="line1"></div>
+        <div class="w50percent">
+            <div class="wh90percent textleft">
+                <span class="opensans size13"><b>ROOM 2</b></span><br/>
+                <div class="addroom2 block grey"><a href="#" onclick="addroom3()" class="grey">+ Add room</a> | <a href="#" onclick="removeroom2()" class="orange"><img src="images/delete.png" alt="delete"/></a></div>
+            </div>
+        </div>
+
+        <div class="w50percentlast">
+            <div class="wh90percent textleft right">
+                <div class="w50percent">
+                    <div class="wh90percent textleft left">
+                        <span class="opensans size13"><b>Adult</b></span>
+                        <select class="form-control mySelectBoxClass">
+                            <option>1</option>
+                            <option>2</option>
+                            <option selected>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="w50percentlast">
+                    <div class="wh90percent textleft right">
+                        <span class="opensans size13"><b>Child</b></span>
+                        <select class="form-control mySelectBoxClass">
+                            <option selected>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="room3 none">
+        <div class="clearfix"></div><div class="line1"></div>
+        <div class="w50percent">
+            <div class="wh90percent textleft">
+                <span class="opensans size13"><b>ROOM 3</b></span><br/>
+                <div class="addroom3 block grey"><a href="#" onclick="addroom3()" class="grey">+ Add room</a> | <a href="#" onclick="removeroom3()" class="orange"><img src="images/delete.png" alt="delete"/></a></div>
+            </div>
+        </div>
+
+        <div class="w50percentlast">
+            <div class="wh90percent textleft right">
+                <div class="w50percent">
+                    <div class="wh90percent textleft left">
+                        <span class="opensans size13"><b>Adult</b></span>
+                        <select class="form-control mySelectBoxClass">
+                            <option selected>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="w50percentlast">
+                    <div class="wh90percent textleft right">
+                        <span class="opensans size13"><b>Child</b></span>
+                        <select class="form-control mySelectBoxClass">
+                            <option selected>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<!--End of 2nd tab -->
+
+<div id="car" class="tab-pane fade">
+
+    <div class="w50percent">
+        <div class="wh90percent textleft">
+            <span class="opensans size13"><b>Picking up</b></span>
+            <input type="text" class="form-control" placeholder="Airport, address">
+        </div>
+    </div>
+
+    <div class="w50percentlast">
+        <div class="wh90percent textleft right">
+            <span class="opensans size13"><b>Dropping off</b></span>
+            <input type="text" class="form-control" placeholder="Airport, address">
+        </div>
+    </div>
+
+
+    <div class="clearfix"></div><br/>
+
+    <div class="w50percent">
+        <div class="wh90percent textleft">
+            <span class="opensans size13"><b>Pick up date</b></span>
+            <input type="text" class="form-control mySelectCalendar" id="datepicker5" placeholder="mm/dd/yyyy"/>
+        </div>
+    </div>
+
+    <div class="w50percentlast">
+        <div class="wh90percent textleft right">
+            <span class="opensans size13"><b>Hour</b></span>
+            <select class="form-control mySelectBoxClass">
+                <option>12:00 AM</option>
+                <option>12:30 AM</option>
+                <option>01:00 AM</option>
+                <option>01:30 AM</option>
+                <option>02:00 AM</option>
+                <option>02:30 AM</option>
+                <option>03:00 AM</option>
+                <option>03:30 AM</option>
+                <option>04:00 AM</option>
+                <option>04:30 AM</option>
+                <option>05:00 AM</option>
+                <option>05:30 AM</option>
+                <option>06:00 AM</option>
+                <option>06:30 AM</option>
+                <option>07:00 AM</option>
+                <option>07:30 AM</option>
+                <option>08:00 AM</option>
+                <option>08:30 AM</option>
+                <option>09:00 AM</option>
+                <option>09:30 AM</option>
+                <option>10:00 AM</option>
+                <option selected>10:30 AM</option>
+                <option>11:00 AM</option>
+                <option>11:30 AM</option>
+                <option>12:00 PM</option>
+                <option>12:30 PM</option>
+                <option>01:00 PM</option>
+                <option>01:30 PM</option>
+                <option>02:00 PM</option>
+                <option>02:30 PM</option>
+                <option>03:00 PM</option>
+                <option>03:30 PM</option>
+                <option>04:00 PM</option>
+                <option>04:30 PM</option>
+                <option>05:00 PM</option>
+                <option>05:30 PM</option>
+                <option>06:00 PM</option>
+                <option>06:30 PM</option>
+                <option>07:00 PM</option>
+                <option>07:30 PM</option>
+                <option>08:00 PM</option>
+                <option>08:30 PM</option>
+                <option>09:00 PM</option>
+                <option>09:30 PM</option>
+                <option>10:00 PM</option>
+                <option>10:30 PM</option>
+                <option>11:00 PM</option>
+                <option>11:30 PM</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="room1 margtop15">
+        <div class="w50percent">
+            <div class="wh90percent textleft">
+                <span class="opensans size13"><b>Drop off date</b></span>
+                <input type="text" class="form-control mySelectCalendar" id="datepicker6" placeholder="mm/dd/yyyy"/>
+            </div>
+        </div>
+
+        <div class="w50percentlast">
+            <div class="wh90percent textleft right">
+                <span class="opensans size13"><b>Hour</b></span>
+                <select class="form-control mySelectBoxClass">
+                    <option>12:00 AM</option>
+                    <option>12:30 AM</option>
+                    <option>01:00 AM</option>
+                    <option>01:30 AM</option>
+                    <option>02:00 AM</option>
+                    <option>02:30 AM</option>
+                    <option>03:00 AM</option>
+                    <option>03:30 AM</option>
+                    <option>04:00 AM</option>
+                    <option>04:30 AM</option>
+                    <option>05:00 AM</option>
+                    <option>05:30 AM</option>
+                    <option>06:00 AM</option>
+                    <option>06:30 AM</option>
+                    <option>07:00 AM</option>
+                    <option>07:30 AM</option>
+                    <option>08:00 AM</option>
+                    <option>08:30 AM</option>
+                    <option>09:00 AM</option>
+                    <option>09:30 AM</option>
+                    <option>10:00 AM</option>
+                    <option selected>10:30 AM</option>
+                    <option>11:00 AM</option>
+                    <option>11:30 AM</option>
+                    <option>12:00 PM</option>
+                    <option>12:30 PM</option>
+                    <option>01:00 PM</option>
+                    <option>01:30 PM</option>
+                    <option>02:00 PM</option>
+                    <option>02:30 PM</option>
+                    <option>03:00 PM</option>
+                    <option>03:30 PM</option>
+                    <option>04:00 PM</option>
+                    <option>04:30 PM</option>
+                    <option>05:00 PM</option>
+                    <option>05:30 PM</option>
+                    <option>06:00 PM</option>
+                    <option>06:30 PM</option>
+                    <option>07:00 PM</option>
+                    <option>07:30 PM</option>
+                    <option>08:00 PM</option>
+                    <option>08:30 PM</option>
+                    <option>09:00 PM</option>
+                    <option>09:30 PM</option>
+                    <option>10:00 PM</option>
+                    <option>10:30 PM</option>
+                    <option>11:00 PM</option>
+                    <option>11:30 PM</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--End of 3rd tab -->
+
+<div id="vacations" class="tab-pane fade">
+
+    <div class="w50percent">
+        <div class="wh90percent textleft">
+            <span class="opensans size13"><b>Flying from</b></span>
+            <input type="text" class="form-control" placeholder="City or airport">
+        </div>
+    </div>
+
+    <div class="w50percentlast">
+        <div class="wh90percent textleft right">
+            <span class="opensans size13"><b>To</b></span>
+            <input type="text" class="form-control" placeholder="City or airport">
+        </div>
+    </div>
+
+    <div class="clearfix"></div><br/>
+
+    <div class="w50percent">
+        <div class="wh90percent textleft">
+            <span class="opensans size13"><b>Check in date</b></span>
+            <input type="text" class="form-control mySelectCalendar" id="datepicker7" placeholder="mm/dd/yyyy"/>
+        </div>
+    </div>
+
+    <div class="w50percentlast">
+        <div class="wh90percent textleft right">
+            <span class="opensans size13"><b>Check in date</b></span>
+            <input type="text" class="form-control mySelectCalendar" id="datepicker8" placeholder="mm/dd/yyyy"/>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="room1 margtop15">
+        <div class="w50percent">
+            <div class="wh90percent textleft">
+                <span class="opensans size13"><b>ROOM 1</b></span><br/>
+
+                <div class="addroom1 block"><a href="#room2" onclick="addroom2()" class="grey">+ Add room</a></div>
+            </div>
+        </div>
+
+        <div class="w50percentlast">
+            <div class="wh90percent textleft right">
+                <div class="w50percent">
+                    <div class="wh90percent textleft left">
+                        <span class="opensans size13"><b>Adult</b></span>
+                        <select class="form-control mySelectBoxClass">
+                            <option>1</option>
+                            <option selected>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="w50percentlast">
+                    <div class="wh90percent textleft right">
+                        <span class="opensans size13"><b>Child</b></span>
+                        <select class="form-control mySelectBoxClass">
+                            <option>0</option>
+                            <option selected>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="room2 none">
+        <div class="clearfix"></div><div class="line1"></div>
+        <div class="w50percent">
+            <div class="wh90percent textleft">
+                <span class="opensans size13"><b>ROOM 2</b></span><br/>
+                <div class="addroom2 block grey"><a href="#" onclick="addroom3()" class="grey">+ Add room</a> | <a href="#" onclick="removeroom2()" class="orange"><img src="images/delete.png" alt="delete"/></a></div>
+            </div>
+        </div>
+
+        <div class="w50percentlast">
+            <div class="wh90percent textleft right">
+                <div class="w50percent">
+                    <div class="wh90percent textleft left">
+                        <span class="opensans size13"><b>Adult</b></span>
+                        <select class="form-control mySelectBoxClass">
+                            <option>1</option>
+                            <option>2</option>
+                            <option selected>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="w50percentlast">
+                    <div class="wh90percent textleft right">
+                        <span class="opensans size13"><b>Child</b></span>
+                        <select class="form-control mySelectBoxClass">
+                            <option selected>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="room3 none">
+        <div class="clearfix"></div><div class="line1"></div>
+        <div class="w50percent">
+            <div class="wh90percent textleft">
+                <span class="opensans size13"><b>ROOM 3</b></span><br/>
+                <div class="addroom3 block grey"><a href="#" onclick="addroom3()" class="grey">+ Add room</a> | <a href="#" onclick="removeroom3()" class="orange"><img src="images/delete.png" alt="delete"/></a></div>
+            </div>
+        </div>
+
+        <div class="w50percentlast">
+            <div class="wh90percent textleft right">
+                <div class="w50percent">
+                    <div class="wh90percent textleft left">
+                        <span class="opensans size13"><b>Adult</b></span>
+                        <select class="form-control mySelectBoxClass">
+                            <option selected>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="w50percentlast">
+                    <div class="wh90percent textleft right">
+                        <span class="opensans size13"><b>Child</b></span>
+                        <select class="form-control mySelectBoxClass">
+                            <option selected>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--End of 4th tab -->
+</div>
+
+<div class="searchbg">
+    <form action="list4.html">
+        <button type="submit" class="btn-search">Search</button>
+    </form>
+</div>
+
+</div>
+</div>
+<div class="col-md-4">
+    <div class="shadow cstyle05">
+        <div class="fwi one"><img src="images/rome.jpg" alt="" /><div class="mhover none"><span class="icon"><a href="list4.html"><img src="images/spacer.png" alt=""/></a></span></div></div>
+        <div class="ctitle">Rome<a href="list4.html"><img src="images/spacer.png" alt=""/></a>
+            <span>$59.99</span>
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="shadow cstyle05">
+        <div class="fwi one"><img src="images/surfer.jpg" alt="" /><div class="mhover none"><span class="icon"><a href="list4.html"><img src="images/spacer.png" alt=""/></a></span></div></div>
+        <div class="ctitle">Cote d'azur<a href="list4.html"><img src="images/spacer.png" alt=""/></a>
+            <span>$59.99</span>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<!--last minute 1-->
+<div class="deals3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <span class="dtitle">Last Minute</span>
+                <div class="deal">
+                    <a href="details.html"><img src="images/thumb-img.jpg" alt="" class="dealthumb"/></a>
+                    <div class="dealtitle">
+                        <p><a href="details.html" class="dark">Diana Hotel</a></p>
+                        <img src="images/smallrating-4.png" alt="" class="mt-10"/><span class="size13 grey mt-9">Zakynthos</span>
+                    </div>
+                    <div class="dealprice">
+                        <p class="size12 grey lh2">from<span class="price">$35</span><br/>per night</p>
+                    </div>
+                </div>
+                <div class="deal">
+                    <a href="details.html"><img src="images/thumb-img.jpg" alt="" class="dealthumb"/></a>
+                    <div class="dealtitle">
+                        <p><a href="details.html" class="dark">Village Inn Studios & Family Apartments</a></p>
+                        <img src="images/smallrating-3.png" alt="" class="mt-10"/><span class="size13 grey mt-9">Zakynthos</span>
+                    </div>
+                    <div class="dealprice">
+                        <p class="size12 grey lh2">from<span class="price">$49</span><br/>per night</p>
+                    </div>
+                </div>
+                <div class="deal">
+                    <a href="details.html"><img src="images/thumb-img.jpg" alt="" class="dealthumb"/></a>
+                    <div class="dealtitle">
+                        <p><a href="details.html" class="dark">Palatino Hotel</a></p>
+                        <img src="images/smallrating-4.png" alt="" class="mt-10"/><span class="size13 grey mt-9">Zakynthos</span>
+                    </div>
+                    <div class="dealprice">
+                        <p class="size12 grey lh2">from<span class="price">$90</span><br/>per night</p>
+                    </div>
+                </div>
+            </div>
+            <!-- End of first row-->
+
+            <div class="col-md-4">
+                <span class="dtitle">Early Booking</span>
+                <div class="deal">
+                    <a href="details.html"><img src="images/thumb-img.jpg" alt="" class="dealthumb"/></a>
+                    <div class="dealtitle">
+                        <p><a href="details.html" class="dark">Comfort Suites Paradise Island</a></p>
+                        <img src="images/smallrating-4.png" alt="" class="mt-10"/><span class="size13 grey mt-9">Bahamas</span>
+                    </div>
+                    <div class="dealprice">
+                        <p class="size12 grey lh2">from<span class="price">$29</span><br/>per night</p>
+                    </div>
+                </div>
+                <div class="deal">
+                    <a href="details.html"><img src="images/thumb-img.jpg" alt="" class="dealthumb"/></a>
+                    <div class="dealtitle">
+                        <p><a href="details.html" class="dark">Barcelo Malaga</a></p>
+                        <img src="images/smallrating-3.png" alt="" class="mt-10"/><span class="size13 grey mt-9">Spain</span>
+                    </div>
+                    <div class="dealprice">
+                        <p class="size12 grey lh2">from<span class="price">$32</span><br/>per night</p>
+                    </div>
+                </div>
+                <div class="deal">
+                    <a href="details.html"><img src="images/thumb-img.jpg" alt="" class="dealthumb"/></a>
+                    <div class="dealtitle">
+                        <p><a href="details.html" class="dark">Palatino Hotel</a></p>
+                        <img src="images/smallrating-3.png" alt="" class="mt-10"/><span class="size13 grey mt-9">Zakynthos</span>
+                    </div>
+                    <div class="dealprice">
+                        <p class="size12 grey lh2">from<span class="price">$90</span><br/>per night</p>
+                    </div>
+                </div>
+            </div>
+            <!-- End of first row-->
+
+            <div class="col-md-4">
+                <span class="dtitle">Hot Deals</span>
+                <div class="deal">
+                    <a href="details.html"><img src="images/thumb-img.jpg" alt="" class="dealthumb"/></a>
+                    <div class="dealtitle">
+                        <p><a href="details.html" class="dark">Parayso Hotel And Spa</a></p>
+                        <img src="images/smallrating-4.png" alt="" class="mt-10"/><span class="size13 grey mt-9">Zakynthos</span>
+                    </div>
+                    <div class="dealprice">
+                        <p class="size12 grey lh2">from<span class="price">$49</span><br/>per night</p>
+                    </div>
+                </div>
+                <div class="deal">
+                    <a href="details.html"><img src="images/thumb-img.jpg" alt="" class="dealthumb"/></a>
+                    <div class="dealtitle">
+                        <p><a href="details.html" class="dark">Village Inn Studios & Family Apartments</a></p>
+                        <img src="images/smallrating-3.png" alt="" class="mt-10"/><span class="size13 grey mt-9">Zakynthos</span>
+                    </div>
+                    <div class="dealprice">
+                        <p class="size12 grey lh2">from<span class="price">$79</span><br/>per night</p>
+                    </div>
+                </div>
+                <div class="deal">
+                    <a href="details.html"><img src="images/thumb-img.jpg" alt="" class="dealthumb"/></a>
+                    <div class="dealtitle">
+                        <p><a href="details.html" class="dark">Diana Hotel</a></p>
+                        <img src="images/smallrating-3.png" alt="" class="mt-10"/><span class="size13 grey mt-9">Zakynthos</span>
+                    </div>
+                    <div class="dealprice">
+                        <p class="size12 grey lh2">from<span class="price">$299</span><br/>per night</p>
+                    </div>
+                </div>
+            </div>
+            <!-- End of first row-->
+        </div>
+    </div>
+</div>
+<!--last minute 2-->
+<div class="lastminute3">
+    <div class="container">
+        <img src="images/rating-4.png" alt=""/><br/>
+        LAST MINUTE: <b>Barcelona</b> - 2 nights - Flight+4* Hotel, Dep 27h Aug from $209/person<br/>
+        <form action="details.html">
+            <button class="btn iosbtn" type="submit">Read more</button>
+        </form>
+    </div>
+</div>
+<!--top deals-->
+<div class="container cstyle06">
+
+    <div class="row anim2">
+        <div class="col-md-3">
+            <h2>Today's Top<br/>Deals</h2><br/>
+            Start your search with a look at the best rates on our site.
+        </div>
+        <div class="col-md-9">
+
+
+
+            <!-- Carousel -->
+            <div class="wrapper">
+                <div class="list_carousel">
+                    <ul id="foo">
+                        <li>
+                            <a href="list4.html"><img src="images/thumb-hawaii.jpg" alt=""/></a>
+                            <div class="m1">
+                                <h6 class="lh1 dark"><b>Visit the Hawaii Beaches</b></h6>
+                                <h6 class="lh1 green">Save up to 30%</h6>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="list4.html"><img src="images/thumb-santorini.jpg" alt=""/></a>
+                            <div class="m1">
+                                <h6 class="lh1 dark"><b>Santorini - Greece</b></h6>
+                                <h6 class="lh1 green">Save up to 30%</h6>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="list4.html"><img src="images/thumb-dubai.jpg" alt=""/></a>
+                            <div class="m1">
+                                <h6 class="lh1 dark"><b>Dubai</b></h6>
+                                <h6 class="lh1 green">Save up to 30%</h6>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="list4.html"><img src="images/thumb-hawaii.jpg" alt=""/></a>
+                            <div class="m1">
+                                <h6 class="lh1 dark"><b>Visit the Hawaii Beaches</b></h6>
+                                <h6 class="lh1 green">Save up to 30%</h6>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="list4.html"><img src="images/thumb-santorini.jpg" alt=""/></a>
+                            <div class="m1">
+                                <h6 class="lh1 dark"><b>Santorini - Greece</b></h6>
+                                <h6 class="lh1 green">Save up to 30%</h6>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="list4.html"><img src="images/thumb-dubai.jpg" alt=""/></a>
+                            <div class="m1">
+                                <h6 class="lh1 dark"><b>Dubai</b></h6>
+                                <h6 class="lh1 green">Save up to 30%</h6>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                    <a id="prev_btn" class="prev" href="#"><img src="images/spacer.png" alt=""/></a>
+                    <a id="next_btn" class="next" href="#"><img src="images/spacer.png" alt=""/></a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <hr class="featurette-divider2">
+
+    <div class="row anim3">
+        <div class="col-md-3">
+            <h2>Featured<br/>Offers</h2><br/>
+            Start your search with a look at the best rates on our site.
+        </div>
+        <div class="col-md-9">
+
+            <!-- Carousel -->
+            <div class="wrapper">
+                <div class="list_carousel">
+                    <ul id="foo2">
+                        <li>
+                            <a href="list3.html"><img src="images/thumb-africa.jpg" alt=""/></a>
+                            <div class="m1">
+                                <h6 class="lh1 dark"><b>South Africa Adventures</b></h6>
+                                <h6 class="lh1 green">Save up to 30%</h6>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="list3.html"><img src="images/thumb-egipt.jpg" alt=""/></a>
+                            <div class="m1">
+                                <h6 class="lh1 dark"><b>Egipt</b></h6>
+                                <h6 class="lh1 green">Save up to 30%</h6>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="list3.html"><img src="images/thumb-machupicchu.jpg" alt=""/></a>
+                            <div class="m1">
+                                <h6 class="lh1 dark"><b>Machu Picchu</b></h6>
+                                <h6 class="lh1 green">Save up to 30%</h6>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="list3.html"><img src="images/thumb-africa.jpg" alt=""/></a>
+                            <div class="m1">
+                                <h6 class="lh1 dark"><b>South Africa Adventures</b></h6>
+                                <h6 class="lh1 green">Save up to 30%</h6>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="list3.html"><img src="images/thumb-egipt.jpg" alt=""/></a>
+                            <div class="m1">
+                                <h6 class="lh1 dark"><b>Egipt</b></h6>
+                                <h6 class="lh1 green">Save up to 30%</h6>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="list3.html"><img src="images/thumb-machupicchu.jpg" alt=""/></a>
+                            <div class="m1">
+                                <h6 class="lh1 dark"><b>Machu Picchu</b></h6>
+                                <h6 class="lh1 green">Save up to 30%</h6>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                    <a id="prev_btn2" class="prev" href="#"><img src="images/spacer.png" alt=""/></a>
+                    <a id="next_btn2" class="next" href="#"><img src="images/spacer.png" alt=""/></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
