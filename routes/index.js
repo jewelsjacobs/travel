@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('index.html', { title: 'MovieMap' });
+  res.render('index.html', { title: 'Travel' });
 };

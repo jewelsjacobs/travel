@@ -25,7 +25,7 @@ if ('production' !== process.env.status) {
   app.set('views', __dirname + '/app');
   app.use(express.static(path.join(__dirname, 'app')));
   app.use(function(req, res) {
-    res.render('index.html', { title: 'MovieMap' });
+    res.render('index.html', { title: 'Travel' });
   });
   app.use(express.errorHandler());
 } else {
@@ -33,24 +33,23 @@ if ('production' !== process.env.status) {
   app.set('views', __dirname + '/dist');
   app.use(express.static(path.join(__dirname, 'dist')));
   app.use(function(req, res) {
-    res.render('index.html', { title: 'MovieMap' });
+    res.render('index.html', { title: 'Travel' });
   });
 }
 
 /**
- * OSM API
+ * Expedia API
  */
-app.get('/geocode/name/:name', api.geocode);
-
-app.get('/reverse/:lat/:lng', api.reverse);
-
-/**
- * Freebase API
- */
-// test: {lat:40.7144,lng:-74.006}
-app.get('/freebase/lat/:lat/lng/:lng', api.freebase_coords);
-
-app.get('/freebase/topic/:name', api.freebase_topic);
+app.get('/api/geosearch', api.geoSearch);
+app.get('/api/payments', api.acceptedPayments);
+app.get('/api/hotel/avail', api.hotelAvailability);
+app.get('/api/hotel/info', api.hotelInfo);
+app.get('/api/hotel/list', api.hotelList);
+app.get('/api/hotel/images', api.hotelRoomImages);
+app.get('/api/ping', api.ping);
+app.get('/api/res/book', api.reservationBook);
+app.get('/api/res/cancel', api.reservationCancel);
+app.get('/api/res/get', api.reservationGet);
 
 app.get('/', routes.index);
 

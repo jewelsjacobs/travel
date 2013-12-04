@@ -4,7 +4,7 @@
  * Expedia service
  * API Docs: https://developers.google.com/freebase/
  */
-angular.module('travelApp')
+angular.module('main')
   .factory('Expedia', ['Restangular', function (Restangular){
 
     return Restangular.withConfig(function (RestangularConfigurer){
