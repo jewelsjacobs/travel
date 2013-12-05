@@ -9,6 +9,7 @@ angular.module('main', ['ngRoute', 'ui.router'])
                       $locationProvider,
                       $httpProvider,
                       $stateProvider){
+    var commonViewDir = 'views/common/';
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
     $stateProvider
       .state('main', {
@@ -16,11 +17,11 @@ angular.module('main', ['ngRoute', 'ui.router'])
         abstract: true,
         views: {
           'header': {
-            templateUrl: 'views/header.html',
+            templateUrl: commonViewDir + 'header.html',
             controller: 'HeaderCtrl'
           },
           'footer': {
-            templateUrl: 'views/footer.html',
+            templateUrl: commonViewDir + 'footer.html',
             controller: 'FooterCtrl'
           }
         }

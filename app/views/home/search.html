@@ -1,0 +1,205 @@
+<div class="container mt-200 z-index100">
+<div class="row">
+<div class="col-md-4">
+  <div class="bs-example bs-example-tabs cstyle04">
+
+    <div class="tab-content3" id="myTabContent">
+
+      <div id="hotel" class="tab-pane fade">
+        <span class="opensans size18">Where do you want to go?</span>
+        <input type="text" class="form-control" placeholder="Greece">
+
+        <br/>
+
+        <div class="w50percent">
+          <div class="wh90percent textleft">
+            <span class="opensans size13"><b>Check in date</b></span>
+            <input type="text" class="form-control mySelectCalendar" id="datepicker" placeholder="mm/dd/yyyy"/>
+          </div>
+        </div>
+
+        <div class="w50percentlast">
+          <div class="wh90percent textleft right">
+            <span class="opensans size13"><b>Check in date</b></span>
+            <input type="text" class="form-control mySelectCalendar" id="datepicker2" placeholder="mm/dd/yyyy"/>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="room1 margtop15">
+          <div class="w50percent">
+            <div class="wh90percent textleft">
+              <span class="opensans size13"><b>ROOM 1</b></span><br/>
+
+              <div class="addroom1 block"><a href="#room2" onclick="addroom2()" class="grey">+ Add room</a></div>
+            </div>
+          </div>
+
+          <div class="w50percentlast">
+            <div class="wh90percent textleft right ohidden">
+              <div class="w50percent">
+                <div class="wh90percent textleft left">
+                  <span class="opensans size13"><b>Adult</b></span>
+                  <select class="form-control mySelectBoxClass">
+                    <option>1</option>
+                    <option selected>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </div>
+              <div class="w50percentlast">
+                <div class="wh90percent textleft right ohidden">
+                  <span class="opensans size13"><b>Child</b></span>
+                  <select class="form-control mySelectBoxClass">
+                    <option>0</option>
+                    <option selected>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="room2 none">
+          <div class="clearfix"></div>
+          <div class="line1"></div>
+          <div class="w50percent">
+            <div class="wh90percent textleft">
+              <span class="opensans size13"><b>ROOM 2</b></span><br/>
+
+              <div class="addroom2 block grey"><a href="#" onclick="addroom3()" class="grey">+ Add room</a> |
+                <a href="#" onclick="removeroom2()" class="orange"><img src="images/delete.png" alt="delete"/></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="w50percentlast">
+            <div class="wh90percent textleft right">
+              <div class="w50percent">
+                <div class="wh90percent textleft left">
+                  <span class="opensans size13"><b>Adult</b></span>
+                  <select class="form-control mySelectBoxClass">
+                    <option>1</option>
+                    <option>2</option>
+                    <option selected>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </div>
+              <div class="w50percentlast">
+                <div class="wh90percent textleft right">
+                  <span class="opensans size13"><b>Child</b></span>
+                  <select class="form-control mySelectBoxClass">
+                    <option selected>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="room3 none">
+          <div class="clearfix"></div>
+          <div class="line1"></div>
+          <div class="w50percent">
+            <div class="wh90percent textleft">
+              <span class="opensans size13"><b>ROOM 3</b></span><br/>
+
+              <div class="addroom3 block grey"><a href="#" onclick="addroom3()" class="grey">+ Add room</a> |
+                <a href="#" onclick="removeroom3()" class="orange"><img src="images/delete.png" alt="delete"/></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="w50percentlast">
+            <div class="wh90percent textleft right">
+              <div class="w50percent">
+                <div class="wh90percent textleft left">
+                  <span class="opensans size13"><b>Adult</b></span>
+                  <select class="form-control mySelectBoxClass">
+                    <option selected>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </div>
+              <div class="w50percentlast">
+                <div class="wh90percent textleft right">
+                  <span class="opensans size13"><b>Child</b></span>
+                  <select class="form-control mySelectBoxClass">
+                    <option selected>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <div class="searchbg">
+      <form action="../list/list4.html">
+        <button type="submit" class="btn-search">Search</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="shadow cstyle05">
+    <div class="fwi one"><img src="images/rome.jpg" alt=""/>
+
+      <div class="mhover none">
+        <span class="icon">
+        <a href="../list/list4.html">
+          <img src="images/spacer.png" alt=""/>
+        </a>
+      </span>
+      </div>
+    </div>
+    <div class="ctitle">Rome
+      <a href="../list/list4.html">
+        <img src="images/spacer.png" alt=""/>
+      </a>
+      <span>$59.99</span>
+    </div>
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="shadow cstyle05">
+    <div class="fwi one"><img src="images/surfer.jpg" alt=""/>
+
+      <div class="mhover none">
+        <span class="icon"><a href="../list/list4.html"><img src="images/spacer.png" alt=""/></a></span>
+      </div>
+    </div>
+    <div class="ctitle">Cote d'azur<a href="../list/list4.html"><img src="images/spacer.png" alt=""/></a>
+      <span>$59.99</span>
+    </div>
+  </div>
+</div>
+</div>
+</div>

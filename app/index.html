@@ -36,12 +36,25 @@
 
 <!-- Add your site or application content here -->
 <div ui-view="header"></div>
-<div ui-view="container"></div>
+<div ui-view="content"></div>
+<div ui-view="footer"></div>
 
 <!-- build:js scripts/jquery_main.js -->
 <script src="bower_components/jquery/jquery.js"></script>
 <script src="bower_components/jquery-migrate/jquery-migrate.js"></script>
 <script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/jquery.js -->
+<script src="js/jquery.easing.js"></script>
+<script src="js/jquery.themepunch.revolution.js"></script>
+<script src="js/jquery.nicescroll.min.js"></script>
+<script src="js/jquery.carouFredSel-6.2.1-packed.js"></script>
+<script src="js/helper-plugins/jquery.touchSwipe.min.js"></script>
+<script src="js/helper-plugins/jquery.mousewheel.min.js"></script>
+<script src="js/helper-plugins/jquery.transit.min.js"></script>
+<script src="js/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
+<script src='js/jquery.customSelect.js'></script>
 <!-- endbuild -->
 
 <!-- This page JS -->
@@ -56,18 +69,6 @@
 
 <!-- Custom functions -->
 <script src="js/functions.js"></script>
-
-<!-- build:js scripts/jquery.js -->
-<script src="js/jquery.easing.js"></script>
-<script src="js/jquery.themepunch.revolution.js"></script>
-<script src="js/jquery.nicescroll.min.js"></script>
-<script src="js/jquery.carouFredSel-6.2.1-packed.js"></script>
-<script src="js/helper-plugins/jquery.touchSwipe.min.js"></script>
-<script src="js/helper-plugins/jquery.mousewheel.min.js"></script>
-<script src="js/helper-plugins/jquery.transit.min.js"></script>
-<script src="js/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
-<script src='js/jquery.customSelect.js'></script>
-<!-- endbuild -->
 
 <script src="bower_components/angular/angular.js"></script>
 
@@ -100,6 +101,9 @@
 <script src="scripts/common/controllers/header.js"></script>
 <script src="scripts/common/controllers/footer.js"></script>
 <!-- endbuild -->
+
+<!--Live Reload-->
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 
 </body>
 </html>

@@ -1,12 +1,13 @@
 'use strict';
 
 angular.module('main.home', ['main']).config(function ($stateProvider){
+  var homeViewDir = 'views/home/';
   $stateProvider
     .state('main.home', {
       url: '/',
       views: {
         '@container': {
-          templateUrl: 'views/home.html'
+          templateUrl: homeViewDir + 'home.html'
         }
       }
     })
@@ -14,23 +15,23 @@ angular.module('main.home', ['main']).config(function ($stateProvider){
       url: '',
       views: {
         'banner': {
-          templateUrl: 'views/banner.html',
+          templateUrl: homeViewDir + 'banner.html',
           controller: 'BannerCtrl'
         },
         'search': {
-          templateUrl: 'views/search.html',
+          templateUrl: homeViewDir + 'search.html',
           controller: 'SearchCtrl'
         },
         'lastminutelarge': {
-          templateUrl: 'views/lastminutelarge.html',
+          templateUrl: homeViewDir + 'lastminutelarge.html',
           controller: 'LastMinuteLargeCtrl'
         },
         'lastminutesmall': {
-          templateUrl: 'views/lastminutesmall.html',
+          templateUrl: homeViewDir + 'lastminutesmall.html',
           controller: 'LastMinuteSmallCtrl'
         },
         'topdeals': {
-          templateUrl: 'views/topdeals.html',
+          templateUrl: homeViewDir + 'topdeals.html',
           controller: 'TopDealsCtrl'
         }
       }

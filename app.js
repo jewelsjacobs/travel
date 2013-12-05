@@ -7,7 +7,8 @@ var express = require('express')
   , routes = require('./routes')
   , http = require('http')
   , path = require('path')
-  , api = require('./routes/api');
+  , api = require('./routes/api')
+  , open = require("open");
 
 var app = express();
 
@@ -57,4 +58,7 @@ module.exports = app;
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
+  if ('production' !== process.env.status) {
+    open("http://localhost:" + app.get('port'));
+  }
 });
