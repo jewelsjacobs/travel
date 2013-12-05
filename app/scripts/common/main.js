@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('main', ['ngRoute', 'ui.router'])
+angular.module('main', ['ngRoute', 'ui.router', 'main.home'])
   .config(['$routeProvider',
     '$locationProvider',
     '$httpProvider',

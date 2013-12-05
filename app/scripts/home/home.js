@@ -1,12 +1,13 @@
 'use strict';
 
-angular.module('main.home', ['main']).config(function ($stateProvider){
+angular.module('main.home', ['ui.bootstrap']).config(function ($stateProvider){
   var homeViewDir = 'views/home/';
   $stateProvider
     .state('main.home', {
       url: '/',
+      abstract: true,
       views: {
-        '@container': {
+        'content@': {
           templateUrl: homeViewDir + 'home.html'
         }
       }
