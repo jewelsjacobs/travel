@@ -18,7 +18,8 @@
   "dependencies": {
     "express": "~3.2.6",
     "ejs": "*",
-    "expedia": "0.0.1"
+    "expedia": "0.0.1",
+    "open": "0.0.4"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
