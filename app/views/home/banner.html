@@ -1,0 +1,23 @@
+<!--
+#################################
+    - THEMEPUNCH BANNER -
+#################################
+-->
+<div id="dajy" class="fullscreen-container mtslide sliderbg fixed">
+  <div class="fullscreenbanner">
+    <carousel interval="myInterval">
+      <slide ng-repeat="slide in slides" active="slide.active">
+        <img ng-src="{{slide.image}}" style="margin:auto;">
+        <div class="carousel-caption">
+          <div class="sboxpurple textcenter">
+            <span class="lato size28 slim caps white">{{ slide.country }}</span><br/><br/><br/>
+            <span class="lato size100 slim caps white">{{ slide.city }}</span><br/>
+            <span class="lato size20 normal caps white">from</span><br/><br/>
+            <span class="lato size48 slim uppercase yellow">{{ slide.price }}</span><br/>
+          </div>
+        </div>
+      </slide>
+    </carousel>
+  </div>
+</div>
+
