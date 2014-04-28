@@ -44,6 +44,9 @@ Angular JS + [Lineman](http://www.linemanjs.com).
 6. Run server/server.js script with [forever](http://labs.telasocial.com/nodejs-forever-daemon/)
 
 ## Running Tests
+
+#_NOTE_: Tests are not configured yet for current files.  On my TODO list, along with running on Travis CI.
+
 Testing procedures based on [@davemo](http://www.github.com/davemo)'s [Testing Strategies for Angular JS](http://www.youtube.com/watch?v=UYVcY9EJcRs) screencast, and contains all the tests we wrote in the screencast and a few more!
 
 To run the unit tests:
