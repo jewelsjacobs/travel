@@ -1,8 +1,8 @@
 "use strict"
 
-###
-Global Controller
-###
+#
+# Footer Controller
+#
 angular.module("main").controller "FooterCtrl", [
   "$scope"
   ($scope) ->

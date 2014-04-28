@@ -18,8 +18,8 @@ app.use app.router
 
 # static files production
 app.configure "production", ->
-  app.set "views", __dirname
-  app.use express.static(__dirname)
+  app.set "views", "#{__dirname}/../dist/"
+  app.use express.static("#{__dirname}/../dist")
   app.use (req, res) ->
     res.render "index.html"
 

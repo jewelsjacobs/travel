@@ -1,9 +1,9 @@
 "use strict"
 
-###
-Expedia service
-API Docs: https://developers.google.com/freebase/
-###
+#
+# Expedia service
+# API Docs: https://github.com/Sdedelbrock/node-expedia-api
+#
 angular.module("main").factory "Expedia", [
   "Restangular"
   (Restangular) ->

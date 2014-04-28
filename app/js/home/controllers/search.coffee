@@ -1,8 +1,8 @@
 "use strict"
 
-###
-Search Controller
-###
+#
+# Search Controller
+#
 angular.module("main.home").controller "SearchCtrl", [
   "$scope"
   ($scope) ->

@@ -1,8 +1,8 @@
 "use strict"
 
-###
-Global Controller
-###
+#
+# Header Controller
+#
 angular.module("main").controller "HeaderCtrl", [
   "$scope"
   ($scope) ->
