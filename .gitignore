@@ -45,6 +45,10 @@ Thumbs.db
 ################################
 /node_modules
 
+# Dev files #
+################################
+/generated
+
 # Bower #
 ################################
 /app/bower_components
