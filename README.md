@@ -36,10 +36,12 @@ Angular JS + [Lineman](http://www.linemanjs.com).
 4. Your browser will open to localhost:8000
 
 ## Running in production mode
-1. `$ export NODE_ENV=production`
-2. `$ node server/server.js`
-3. `$ lineman build`
-4. Open your browser to http://localhost:8000
+1. `$ export NODE_ENV=production | export PORT=80`
+2. `$ lineman build`
+3. Deploy `server` and `dist` folders to external server.
+4. `$ cd server`
+5. `$ npm install --production`
+6. Run server/server.js script with [forever](http://labs.telasocial.com/nodejs-forever-daemon/)
 
 ## Running Tests
 Testing procedures based on [@davemo](http://www.github.com/davemo)'s [Testing Strategies for Angular JS](http://www.youtube.com/watch?v=UYVcY9EJcRs) screencast, and contains all the tests we wrote in the screencast and a few more!
