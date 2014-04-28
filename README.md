@@ -2,7 +2,7 @@
 
 Expedia API travel site
 
-## Uses
+## Uses:
 
 Angular JS + [Lineman](http://www.linemanjs.com).
 
@@ -13,15 +13,15 @@ Angular JS + [Lineman](http://www.linemanjs.com).
 5. [Unit Tests](https://github.com/linemanjs/lineman-angular-template/tree/master/spec) and [End-to-End Tests](https://github.com/linemanjs/lineman-angular-template/tree/master/spec-e2e)
 6. Configuration to run [Protractor](https://github.com/juliemr/protractor) for End-to-End Tests
 7. [Restangular](https://github.com/mgonto/restangular) AngularJS module as opposed to $http or $resource
-8. Express backend API consumed via Lineman's server proxy
+8. Express / node.js Expedia API consumed via Lineman's server proxy
 9. [Livereload plugin](https://github.com/linemanjs/lineman-livereload)
 10. [Bower plugin](https://github.com/linemanjs/lineman-bower)
 11. CoffeeScript
 12. Bootstrap
 13. Angular UI Router
+14. CoffeLint
 
 ## Instructions
-
 1. `$ git clone -b lineman https://git@bitbucket.org:jjacobs2000/travel.git travel`
 2. `$ cd travel`
 3. `$ sudo npm install -g lineman`
@@ -29,19 +29,19 @@ Angular JS + [Lineman](http://www.linemanjs.com).
 5. `$ npm install`
 6. `$ bower install`
 
-# Running in development mode
+## Running in development mode
 1. `$ export NODE_ENV=development`
 2. `$ node server/server.js`
 3. `$ lineman run`
 4. Your browser will open to localhost:8000
 
-# Running in production mode
+## Running in production mode
 1. `$ export NODE_ENV=production`
-2. `$ node dist/server.js`
+2. `$ node server/server.js`
 3. `$ lineman build`
 4. Open your browser to http://localhost:8000
 
-# Running Tests
+## Running Tests
 Testing procedures based on [@davemo](http://www.github.com/davemo)'s [Testing Strategies for Angular JS](http://www.youtube.com/watch?v=UYVcY9EJcRs) screencast, and contains all the tests we wrote in the screencast and a few more!
 
 To run the unit tests:
