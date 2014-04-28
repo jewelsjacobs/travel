@@ -9,7 +9,7 @@ angular.module('main', ['ngRoute', 'ui.router', 'main.home'])
                       $locationProvider,
                       $httpProvider,
                       $stateProvider){
-    var commonViewDir = 'views/common/';
+    var commonViewDir = './views/common/';
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
     $stateProvider
       .state('main', {

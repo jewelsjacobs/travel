@@ -265,9 +265,10 @@ module.exports = function (grunt) {
           dest: '<%= yeoman.dist %>',
           src: [
             '*.{ico,png,txt}',
-            '*.html', 'views/*.html',
+            '*.html',
+            'views/**/*.html',
+            'views/*.html',
             '.htaccess',
-            'bower_components/**/*',
             'images/{,*/}*.{gif,webp}',
             'styles/fonts/*'
           ]
@@ -373,8 +374,11 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= yeoman.dist %>/scripts',
-          src: '*.js',
+          cwd: '<%= yeoman.app %>/scripts',
+          src: [
+              '/**/*.js',
+              '*.js'
+            ],
           dest: '<%= yeoman.dist %>/scripts'
         }]
       }

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('main.home', ['ui.bootstrap']).config(function ($stateProvider){
-  var homeViewDir = 'views/home/';
+  var homeViewDir = './views/home/';
   $stateProvider
     .state('main.home', {
       url: '/',

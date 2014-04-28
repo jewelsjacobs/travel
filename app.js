@@ -21,7 +21,7 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
 
-if ('production' !== process.env.status) {
+if ('production' !== process.env.NODE_ENV) {
   // development only
   app.set('views', __dirname + '/app');
   app.use(express.static(path.join(__dirname, 'app')));
@@ -57,8 +57,8 @@ app.get('/', routes.index);
 module.exports = app;
 
 http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
-  if ('production' !== process.env.status) {
+  console.log('Express server listening on port ' + app.get('port') + ' in ' + process.env.NODE_ENV);
+  if ('production' !== process.env.NODE_ENV) {
     open("http://localhost:" + app.get('port'));
   }
 });
