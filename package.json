@@ -15,6 +15,10 @@
   "engines": {
     "node": "0.10.x"
   },
+  "config" : {
+    "livereloadstart" : "{{ if (env=='development') { }}",
+    "livereloadend" : "{{ } }}"
+  },
   "dependencies": {
     "express": "~3.2.6",
     "ejs": "*",

@@ -8,6 +8,16 @@
 module.exports = (lineman) ->
 
   #Override file patterns here
+  coffee:
+    app: [
+      "app/js/home/home.coffee"
+      "app/js/common/main.coffee"
+      "app/js/app.coffee"
+      "app/js/common/controllers/*.coffee"
+      "app/js/common/services/*.coffee"
+      "app/js/home/controllers/*.coffee"
+    ]
+
   js:
     vendor: [
       "vendor/bower/jquery/jquery.js"
@@ -30,7 +40,6 @@ module.exports = (lineman) ->
       "vendor/bower/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js"
       "vendor/js/**/*.js"
     ]
-
   css:
     vendor: [
       "vendor/css/**/*.css"

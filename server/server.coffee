@@ -6,10 +6,14 @@ app = express()
 
 process.env.NODE_ENV = process.env.NODE_ENV or "development"
 
+ejs = require('ejs')
+ejs.open = '{{'
+ejs.close = '}}'
+
 # express config
 app.set "port", process.env.PORT or 8888
 app.set "view engine", "ejs"
-app.engine "html", require("ejs").renderFile
+app.engine "html", ejs.renderFile
 app.use express.logger("dev")
 app.use express.urlencoded()
 app.use express.json()
@@ -21,14 +25,16 @@ app.configure "production", ->
   app.set "views", "#{__dirname}/../dist/"
   app.use express.static("#{__dirname}/../dist")
   app.use (req, res) ->
-    res.render "index.html"
+    res.render "index.html",
+      env: "production"
 
 # static files development
 app.configure "development", ->
   app.set "views", "#{__dirname}/../generated/"
   app.use express.static("#{__dirname}/../generated")
   app.use (req, res) ->
-    res.render "index.html"
+    res.render "index.html",
+      env: "development"
 
 #Expedia API
 
