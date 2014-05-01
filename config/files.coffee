@@ -44,3 +44,7 @@ module.exports = (lineman) ->
     vendor: [
       "vendor/css/**/*.css"
     ]
+
+  webfonts:
+    vendor: "vendor/webfonts/**/*.*"
+    root: "fonts"

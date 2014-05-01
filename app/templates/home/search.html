@@ -14,15 +14,14 @@
         <div class="w50percent">
           <div class="wh90percent textleft">
             <span class="opensans size13"><b>Check in date</b></span>
-            <input class="form-control mySelectCalendar" type="text" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-            <!--<input type="text" class="form-control mySelectCalendar" id="datepicker" placeholder="mm/dd/yyyy"/>-->
+            <input class="form-control mySelectCalendar" ng-click="open($event)" type="text" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
           </div>
         </div>
 
         <div class="w50percentlast">
           <div class="wh90percent textleft right">
             <span class="opensans size13"><b>Check in date</b></span>
-            <input type="text" class="form-control mySelectCalendar" id="datepicker2" placeholder="mm/dd/yyyy"/>
+            <input class="form-control mySelectCalendar" ng-click="open($event)" type="text" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
           </div>
         </div>
 
