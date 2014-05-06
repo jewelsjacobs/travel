@@ -1,6 +1,7 @@
 "use strict"
 angular.module("main", [
   "ngRoute"
+  "restangular"
   "ui.router"
   "main.home"
 ]).config([

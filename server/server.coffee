@@ -38,7 +38,7 @@ app.configure "development", ->
 
 #Expedia API
 
-app.get "/api/geosearch", api.geoSearch
+app.get "/api/geosearch/:location", api.geoSearch
 app.get "/api/payments", api.acceptedPayments
 app.get "/api/hotel/avail", api.hotelAvailability
 app.get "/api/hotel/info", api.hotelInfo

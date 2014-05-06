@@ -7,21 +7,21 @@
 
       <div id="hotel" class="tab-pane">
         <span class="opensans size18">Where do you want to go?</span>
-        <input type="text" class="form-control" placeholder="Greece">
-
+        <input type="text" ng-model="asyncSelected" typeahead-min-length="3" placeholder="Greece" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-template-url="home/typeahead-template.html" class="form-control">
+        <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
         <br/>
 
         <div class="w50percent">
           <div class="wh90percent textleft">
             <span class="opensans size13"><b>Check in date</b></span>
-            <input class="form-control mySelectCalendar" ng-click="open($event)" type="text" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+            <input class="form-control mySelectCalendar" ng-click="openCheckIn($event)" type="text" datepicker-popup="{{format}}" ng-model="checkinDt" is-open="checkInOpened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
           </div>
         </div>
 
         <div class="w50percentlast">
           <div class="wh90percent textleft right">
-            <span class="opensans size13"><b>Check in date</b></span>
-            <input class="form-control mySelectCalendar" ng-click="open($event)" type="text" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+            <span class="opensans size13"><b>Check out date</b></span>
+            <input class="form-control mySelectCalendar" ng-click="openCheckOut($event)" type="text" datepicker-popup="{{format}}" ng-model="checkoutDt" is-open="checkOutOpened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
           </div>
         </div>
 
@@ -30,9 +30,10 @@
         <div class="room1 margtop15">
           <div class="w50percent">
             <div class="wh90percent textleft">
-              <span class="opensans size13"><b>ROOM 1</b></span><br/>
+              <span class="opensans size13"><b>ROOM {{rooms}}</b></span><br/>
 
-              <div class="addroom1 block"><a href="#room2" onclick="addroom2()" class="grey">+ Add room</a></div>
+              <div class="addroom1 block"><a href="#" ng-click="rooms = rooms + 1" ng-init="rooms=1" class="grey">+ Add room</a></div>
+              <div ng-show="rooms > 1" class="addroom1 block"><a href="#" ng-click="rooms = rooms - 1" class="grey">- Remove room</a></div>
             </div>
           </div>
 

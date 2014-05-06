@@ -12,7 +12,7 @@ exports.geoSearch = (req, res) ->
     customerUserAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko)"
     LocationInfoRequest:
       locale: "en_US"
-      destinationString: "Seattle, WA"
+      destinationString: req.params.location
 
   expedia.geoSearch options, (err, response) ->
     if err

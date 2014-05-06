@@ -4,8 +4,10 @@
 # Search Controller
 #
 angular.module("main.home").controller "SearchCtrl", [
-  "$scope"
-  ($scope) ->
+  "$scope", "Expedia"
+  ($scope, Expedia) ->
+
+    # calendar
     $scope.today = ->
       $scope.dt = new Date()
 
@@ -15,20 +17,22 @@ angular.module("main.home").controller "SearchCtrl", [
       $scope.showWeeks = not $scope.showWeeks
 
     $scope.clear = ->
-      $scope.dt = null
-
-    # Disable weekend selection
-    $scope.disabled = (date, mode) ->
-      mode is "day" and (date.getDay() is 0 or date.getDay() is 6)
+      $scope.checkinDt = null
+      $scope.checkoutDt = null
 
     $scope.toggleMin = ->
       $scope.minDate = (if ($scope.minDate) then null else new Date())
 
     $scope.toggleMin()
-    $scope.open = ($event) ->
+    $scope.openCheckIn = ($event) ->
       $event.preventDefault()
       $event.stopPropagation()
-      $scope.opened = true
+      $scope.checkInOpened = true
+
+    $scope.openCheckOut = ($event) ->
+      $event.preventDefault()
+      $event.stopPropagation()
+      $scope.checkOutOpened = true
 
     $scope.dateOptions =
       "year-format": "'yy'"
@@ -40,4 +44,22 @@ angular.module("main.home").controller "SearchCtrl", [
       "shortDate"
     ]
     $scope.format = $scope.formats[0]
+
+
+    # typeahead
+    $scope.getLocation = (val) ->
+
+      Expedia.one("geosearch", val).getList().then (data) ->
+
+        addresses = []
+
+        locationInfoData = data.LocationInfoResponse.LocationInfos
+
+        if locationInfoData["@size"] > 1
+          angular.forEach locationInfoData.LocationInfo, (item) ->
+            addresses.push "#{ item.city }, #{ item.countryName }"
+        else
+          addresses.push "#{ locationInfoData.LocationInfo.city }, #{ locationInfoData.LocationInfo.countryName.replace('.', '') }"
+        addresses
+
 ]
