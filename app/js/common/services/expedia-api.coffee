@@ -10,5 +10,4 @@ angular.module("main").factory "Expedia", [
     Restangular.withConfig((RestangularConfigurer) ->
       RestangularConfigurer.setBaseUrl "/api"
     )
-
   ]

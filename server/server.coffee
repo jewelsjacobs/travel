@@ -1,19 +1,19 @@
 # module dependencies.
 express = require("express")
 path = require("path")
+routes = require('./routes')
 api = require("./routes/api")
 app = express()
+ejs = require('ejs')
 
 process.env.NODE_ENV = process.env.NODE_ENV or "development"
-
-ejs = require('ejs')
-ejs.open = '{{'
-ejs.close = '}}'
 
 # express config
 app.set "port", process.env.PORT or 8888
 app.set "view engine", "ejs"
 app.engine "html", ejs.renderFile
+app.use express.cookieParser()
+app.use express.session {secret: '1234567890QWERTY'}
 app.use express.logger("dev")
 app.use express.urlencoded()
 app.use express.json()
@@ -30,11 +30,11 @@ app.configure "production", ->
 
 # static files development
 app.configure "development", ->
-  app.set "views", "#{__dirname}/../generated/"
-  app.use express.static("#{__dirname}/../generated")
-  app.use (req, res) ->
-    res.render "index.html",
-      env: "development"
+app.set "views", "#{__dirname}/../generated/"
+app.use express.static("#{__dirname}/../generated")
+app.use (req, res) ->
+  res.render "index.html",
+    env: "development"
 
 #Expedia API
 
@@ -48,6 +48,8 @@ app.get "/api/ping", api.ping
 app.get "/api/res/book", api.reservationBook
 app.get "/api/res/cancel", api.reservationCancel
 app.get "/api/res/get", api.reservationGet
+
+app.get "/", routes.index
 
 module.exports = app
 

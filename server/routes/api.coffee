@@ -1,5 +1,5 @@
 expedia = require("expedia")(
-  apiKey: "pa39hsu58223g8m23fnb7442"
+  apiKey: "hjmtgvdffmrdhjpq5tnscv36"
   cid: "55505"
 )
 
@@ -7,9 +7,9 @@ expedia = require("expedia")(
 # a complete list of options is available at http://developer.ean.com/docs/geo-functions/
 exports.geoSearch = (req, res) ->
   options =
-    customerSessionId: "thisisauniqueID"
-    customerIpAddress: "127.0.0.1"
-    customerUserAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko)"
+    customerSessionId: req.sessionID
+    customerIpAddress: req.ip
+    customerUserAgent: req.headers['user-agent']
     LocationInfoRequest:
       locale: "en_US"
       destinationString: req.params.location
@@ -27,9 +27,9 @@ exports.geoSearch = (req, res) ->
 # a complete list of options is available at http://developer.ean.com/docs/payment-types/
 exports.acceptedPayments = (req, res) ->
   options =
-    customerSessionId: "thisisauniqueID"
-    customerIpAddress: "127.0.0.1"
-    customerUserAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko)"
+    customerSessionId: req.sessionID
+    customerIpAddress: req.ip
+    customerUserAgent: req.headers['user-agent']
     HotelPaymentRequest:
       hotelId: "122212"
       supplierType: "E"
@@ -50,9 +50,9 @@ exports.hotelAvailability = (req, res) ->
   
   # a complete list of options is available at http://developer.ean.com/docs/room-avail/
   options =
-    customerSessionId: "thisisauniqueID"
-    customerIpAddress: "127.0.0.1"
-    customerUserAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko)"
+    customerSessionId: req.sessionID
+    customerIpAddress: req.ip
+    customerUserAgent: req.headers['user-agent']
     HotelRoomAvailabilityRequest:
       hotelId: "106347"
       arrivalDate: "9/30/2013"
@@ -75,9 +75,9 @@ exports.hotelAvailability = (req, res) ->
 # a complete list of options is available at http://developer.ean.com/docs/hotel-info/
 exports.hotelInfo = (req, res) ->
   options =
-    customerSessionId: "thisisauniqueID"
-    customerIpAddress: "127.0.0.1"
-    customerUserAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko)"
+    customerSessionId: req.sessionID
+    customerIpAddress: req.ip
+    customerUserAgent: req.headers['user-agent']
     HotelInformationRequest:
       hotelId: "122212"
       options: "0"
@@ -95,9 +95,9 @@ exports.hotelInfo = (req, res) ->
 # a complete list of options is available at http://developer.ean.com/docs/hotel-list/
 exports.hotelList = (req, res) ->
   options =
-    customerSessionId: "thisisauniqueID"
-    customerIpAddress: "127.0.0.1"
-    customerUserAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko)"
+    customerSessionId: req.sessionID
+    customerIpAddress: req.ip
+    customerUserAgent: req.headers['user-agent']
     HotelListRequest:
       city: "Seattle"
       stateProvinceCode: "WA"
@@ -123,9 +123,9 @@ exports.hotelList = (req, res) ->
 # a complete list of options is available at http://developer.ean.com/docs/room-images/
 exports.hotelRoomImages = (req, res) ->
   options =
-    customerSessionId: "thisisauniqueID"
-    customerIpAddress: "127.0.0.1"
-    customerUserAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko)"
+    customerSessionId: req.sessionID
+    customerIpAddress: req.ip
+    customerUserAgent: req.headers['user-agent']
     HotelRoomImagesRequest:
       hotelId: "106347"
 
@@ -142,9 +142,9 @@ exports.hotelRoomImages = (req, res) ->
 # Simple echo server, response should match input
 exports.ping = (req, res) ->
   options =
-    customerSessionId: "thisisauniqueID"
-    customerIpAddress: "127.0.0.1"
-    customerUserAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko)"
+    customerSessionId: req.sessionID
+    customerIpAddress: req.ip
+    customerUserAgent: req.headers['user-agent']
     PingRequest:
       echo: "This message should be echoed back to you."
 
@@ -161,9 +161,9 @@ exports.ping = (req, res) ->
 # a complete list of options is available at http://developer.ean.com/docs/book-reservation/
 exports.reservationBook = (req, res) ->
   options =
-    customerSessionId: "thisisauniqueID"
-    customerIpAddress: "127.0.0.1"
-    customerUserAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko)"
+    customerSessionId: req.sessionID
+    customerIpAddress: req.ip
+    customerUserAgent: req.headers['user-agent']
     HotelRoomReservationRequest:
       hotelId: "106347"
       arrivalDate: "9/30/2013"
@@ -213,9 +213,9 @@ exports.reservationBook = (req, res) ->
 # a complete list of options is available at http://developer.ean.com/docs/cancel-reservation/
 exports.reservationCancel = (req, res) ->
   options =
-    customerSessionId: "thisisauniqueID"
-    customerIpAddress: "127.0.0.1"
-    customerUserAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko)"
+    customerSessionId: req.sessionID
+    customerIpAddress: req.ip
+    customerUserAgent: req.headers['user-agent']
     HotelRoomCancellationRequest:
       itineraryId: "1234"
       email: "test@travelnow.com"
@@ -235,9 +235,9 @@ exports.reservationCancel = (req, res) ->
 # a complete list of options is available at http://developer.ean.com/docs/request-itinerary/
 exports.reservationGet = (req, res) ->
   options =
-    customerSessionId: "thisisauniqueID"
-    customerIpAddress: "127.0.0.1"
-    customerUserAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko)"
+    customerSessionId: req.sessionID
+    customerIpAddress: req.ip
+    customerUserAgent: req.headers['user-agent']
     HotelItineraryRequest:
       itineraryId: "1234"
       email: "test@travelnow.com"
