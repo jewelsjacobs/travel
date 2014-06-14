@@ -3,8 +3,7 @@
 #
 # Search Controller
 #
-angular.module("main.home").controller "SearchCtrl", [
-  "$scope", "Expedia"
+angular.module("main.home").controller "SearchCtrl", ["$scope", "Expedia"
   ($scope, Expedia) ->
 
     # calendar
@@ -45,16 +44,11 @@ angular.module("main.home").controller "SearchCtrl", [
     ]
     $scope.format = $scope.formats[0]
 
-
     # typeahead
     $scope.getLocation = (val) ->
-
       Expedia.one("geosearch", val).getList().then (data) ->
-
         addresses = []
-
         locationInfoData = data.LocationInfoResponse.LocationInfos
-
         if locationInfoData["@size"] > 1
           angular.forEach locationInfoData.LocationInfo, (item) ->
             addresses.push "#{ item.city }, #{ item.countryName }"
