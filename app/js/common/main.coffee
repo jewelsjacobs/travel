@@ -4,6 +4,7 @@ angular.module("main", [
   "restangular"
   "ui.router"
   "main.home"
+  "main.hotels"
 ]).config([
   "$routeProvider"
   "$locationProvider"
