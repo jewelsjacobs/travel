@@ -22,7 +22,7 @@ Angular JS + [Lineman](http://www.linemanjs.com).
 14. CoffeLint
 
 ## Instructions
-1. `$ git clone -b lineman https://git@bitbucket.org:jjacobs2000/travel.git`
+1. `$ git clone git@github.com:austin-pair-programming/travel.git`
 2. `$ cd travel`
 3. `$ sudo npm install -g lineman`
 4. `$ sudo npm install -g bower`

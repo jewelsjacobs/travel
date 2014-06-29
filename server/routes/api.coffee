@@ -97,18 +97,28 @@ exports.hotelList = (req, res) ->
   options =
     customerSessionId: req.sessionID
     customerIpAddress: req.ip
-    customerUserAgent: req.headers['user-agent']
+    customerUserAgent: req.headers["user-agent"]
     HotelListRequest:
       city: "Seattle"
       stateProvinceCode: "WA"
       countryCode: "US"
-      arrivalDate: "9/30/2013"
-      departureDate: "10/2/2013"
-      RoomGroup:
-        Room:
-          numberOfAdults: "2"
-
-      numberOfResults: "25"
+      arrivalDate: "7/15/2014"
+      departureDate: "7/17/2014"
+      RoomGroup: [
+        {
+          Room:
+            numberOfAdults: "2"
+            numberOfChildren: "2"
+            childAges: "5, 3"
+        }
+        {
+          Room:
+            numberOfAdults: "3"
+            numberOfChildren: "1"
+            childAges: "5"
+        }
+      ]
+      numberOfResults: "2"
 
   expedia.hotels.list options, (err, response) ->
     if err

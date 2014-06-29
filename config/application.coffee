@@ -13,6 +13,8 @@
 # 
 module.exports = (lineman) ->
 
+  livereload: true
+
   removeTasks:
     common: [
       "handlebars"

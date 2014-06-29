@@ -16,24 +16,25 @@
     "node": "0.10.x"
   },
   "dependencies": {
-    "express": "~3.2.6",
+    "express": "~4.4.5",
     "ejs": "*",
-    "expedia": "0.0.1",
+    "expedia": "0.0.2",
     "lodash": "~2.4.1",
     "coffee-script": "^1.7.1",
     "forever-monitor": "^1.2.3"
   },
   "devDependencies": {
-    "protractor": ">=0.8.0",
-    "jasmine-given": "~2.1.0",
+    "protractor": ">=1.0.0-rc1",
+    "jasmine-given": "~2.6.2",
     "lineman-angular": ">= 0.2.0",
-    "lineman-less": "0.0.1",
+    "lineman-less": "0.1.0",
     "lineman-bower": "0.0.3",
     "lineman-coffeelint": "^0.1.1",
-    "open": "0.0.4",
+    "open": "0.0.5",
     "grunt-open": "^0.2.3",
-    "grunt": "^0.4.4",
-    "lineman": "^0.32.1"
+    "grunt": "^0.4.5",
+    "lineman": "^0.33.4",
+    "lineman-docs": "0.0.6"
   },
   "scripts": {
     "start": "lineman run",

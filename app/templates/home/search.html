@@ -1,206 +1,162 @@
-<div class="container mt-200 z-index100">
-<div class="row">
-<div class="col-md-4">
-  <div class="bs-example bs-example-tabs cstyle04">
 
-    <div class="tab-content3" id="myTabContent">
+<div class="search-form container mt-200 z-index100">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="bs-example bs-example-tabs cstyle04">
+        <form novalidate class="css-form">
+          <div class="tab-content3" id="myTabContent">
 
-      <div id="hotel" class="tab-pane">
-        <span class="opensans size18">Where do you want to go?</span>
-        <input type="text" ng-model="asyncSelected" typeahead-min-length="3" placeholder="Greece" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-template-url="home/typeahead-template.html" class="form-control">
-        <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
-        <br/>
+            <div id="hotel" ng-style="{'height': formContentHeight + 'px'}" class="tab-pane">
 
-        <div class="w50percent">
-          <div class="wh90percent textleft">
-            <span class="opensans size13"><b>Check in date</b></span>
-            <input class="form-control mySelectCalendar" ng-click="openCheckIn($event)" type="text" datepicker-popup="{{format}}" ng-model="checkinDt" is-open="checkInOpened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-          </div>
-        </div>
+              <!--Typeahead-->
+              <span class="opensans size18">Where do you want to go?</span>
+              <input type="text" ng-model="search.location" typeahead-min-length="3" placeholder="Greece"
+                     typeahead="locations as locations.label for locations in getLocation($viewValue)" class="form-control">
+              <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+              <br/>
 
-        <div class="w50percentlast">
-          <div class="wh90percent textleft right">
-            <span class="opensans size13"><b>Check out date</b></span>
-            <input class="form-control mySelectCalendar" ng-click="openCheckOut($event)" type="text" datepicker-popup="{{format}}" ng-model="checkoutDt" is-open="checkOutOpened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-          </div>
-        </div>
-
-        <div class="clearfix"></div>
-
-        <div class="room1 margtop15">
-          <div class="w50percent">
-            <div class="wh90percent textleft">
-              <span class="opensans size13"><b>ROOM {{rooms}}</b></span><br/>
-
-              <div class="addroom1 block"><a href="#" ng-click="rooms = rooms + 1" ng-init="rooms=1" class="grey">+ Add room</a></div>
-              <div ng-show="rooms > 1" class="addroom1 block"><a href="#" ng-click="rooms = rooms - 1" class="grey">- Remove room</a></div>
-            </div>
-          </div>
-
-          <div class="w50percentlast">
-            <div class="wh90percent textleft right ohidden">
               <div class="w50percent">
-                <div class="wh90percent textleft left">
-                  <span class="opensans size13"><b>Adult</b></span>
-                  <select class="form-control mySelectBoxClass">
-                    <option>1</option>
-                    <option selected>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
+                <div class="wh90percent textleft">
+                  <span class="opensans size13"><b>Check in date</b></span>
+                  <!--Checkin Date Calendar-->
+                  <input class="form-control mySelectCalendar" ng-click="openCheckIn($event)" type="text"
+                         datepicker-popup="{{format}}" ng-model="search.checkinDt" is-open="checkInOpened" min="minDate"
+                         max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
+                         ng-required="true" close-text="Close"/>
                 </div>
               </div>
-              <div class="w50percentlast">
-                <div class="wh90percent textleft right ohidden">
-                  <span class="opensans size13"><b>Child</b></span>
-                  <select class="form-control mySelectBoxClass">
-                    <option>0</option>
-                    <option selected>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="room2 none">
-          <div class="clearfix"></div>
-          <div class="line1"></div>
-          <div class="w50percent">
-            <div class="wh90percent textleft">
-              <span class="opensans size13"><b>ROOM 2</b></span><br/>
-
-              <div class="addroom2 block grey"><a href="#" onclick="addroom3()" class="grey">+ Add room</a> |
-                <a href="#" onclick="removeroom2()" class="orange"><img src="img/delete.png" alt="delete"/></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="w50percentlast">
-            <div class="wh90percent textleft right">
-              <div class="w50percent">
-                <div class="wh90percent textleft left">
-                  <span class="opensans size13"><b>Adult</b></span>
-                  <select class="form-control mySelectBoxClass">
-                    <option>1</option>
-                    <option>2</option>
-                    <option selected>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
               <div class="w50percentlast">
                 <div class="wh90percent textleft right">
-                  <span class="opensans size13"><b>Child</b></span>
-                  <select class="form-control mySelectBoxClass">
-                    <option selected>0</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
+                  <!--Checkout Date Calendar-->
+                  <span class="opensans size13"><b>Check out date</b></span>
+                  <input class="form-control mySelectCalendar" ng-click="openCheckOut($event)" type="text"
+                         datepicker-popup="{{format}}" ng-model="search.checkoutDt" is-open="checkOutOpened"
+                         min="minDate" max="'2015-06-22'" datepicker-options="dateOptions"
+                         date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"/>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="room3 none">
-          <div class="clearfix"></div>
-          <div class="line1"></div>
-          <div class="w50percent">
-            <div class="wh90percent textleft">
-              <span class="opensans size13"><b>ROOM 3</b></span><br/>
+              <!--Rooms-->
+              <div ng-repeat="room in search.rooms">
+                <div class="clearfix"></div>
+                <div class="room1 margtop15">
+                  <div class="w50percent">
+                    <div class="wh90percent textleft">
+                      <span class="opensans size13"><b>ROOM {{$index + 1}}</b></span><br/>
 
-              <div class="addroom3 block grey"><a href="#" onclick="addroom3()" class="grey">+ Add room</a> |
-                <a href="#" onclick="removeroom3()" class="orange"><img src="img/delete.png" alt="delete"/></a>
-              </div>
-            </div>
-          </div>
+                      <div class="addroom1 block"><a href="#" ng-click="addRoom()" class="grey">+ Add room</a></div>
+                      <div ng-show="$index > 0" class="addroom1 block"><a href="#" ng-click="removeRoom($index)"
+                                                                          class="grey">- Remove room</a></div>
+                    </div>
+                  </div>
 
-          <div class="w50percentlast">
-            <div class="wh90percent textleft right">
-              <div class="w50percent">
-                <div class="wh90percent textleft left">
-                  <span class="opensans size13"><b>Adult</b></span>
-                  <select class="form-control mySelectBoxClass">
-                    <option selected>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
+                  <div class="w50percentlast">
+                    <div class="wh90percent textleft right ohidden">
+                      <div class="w50percent">
+                        <div class="wh90percent textleft left">
+                          <!--Add Adult-->
+                          <span class="opensans size13"><b>Adult</b></span>
+                          <select ng-model="room.numberOfAdults" class="form-control">
+                            <option>1</option>
+                            <option selected>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="w50percentlast">
+                        <div class="wh90percent textleft right ohidden">
+                          <!--Add Child-->
+                          <span class="opensans size13"><b>Child</b></span>
+                          <select ng-change="childrenAges()" ng-model="room.numberOfChildren" class="form-control">
+                            <option>0</option>
+                            <option selected>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Child Ages-->
+                  <div class="w100percentlast" ng-if="room.showChildrenAges">
+                    <div class="clearfix"></div>
+                    <hr/>
+                    <div ng-class="{'w33percent': $index != 2,  'w34percentlast':  $index == 2}" ng-repeat="age in room.ages">
+                      <div class="wh32percent child-age-marg textleft left ohidden">
+                        <!--Add Child-->
+                        <span class="opensans size13"><b>Child {{ $index + 1 }} Age</b></span>
+                        <select ng-model="age" class="form-control">
+                          <option>Age</option>
+                          <option selected> > 1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+                          <option>10</option>
+                          <option>11</option>
+                          <option>12</option>
+                          <option>13</option>
+                          <option>14</option>
+                          <option>15</option>
+                          <option>16</option>
+                          <option>17</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="w50percentlast">
-                <div class="wh90percent textleft right">
-                  <span class="opensans size13"><b>Child</b></span>
-                  <select class="form-control mySelectBoxClass">
-                    <option selected>0</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
+
             </div>
+
           </div>
-        </div>
-
-
+          <div class="searchbg" ng-style="{'top': formFooterHeight + 'px'}">
+            <button type="submit" class="btn-search">Search</button>
+          </div>
+        </form>
       </div>
-
     </div>
+    <div class="col-md-4">
+      <div class="shadow cstyle05">
+        <div class="fwi one"><img src="img/rome.jpg" alt=""/>
 
-    <div class="searchbg">
-      <form action="../list/list4.html">
-        <button type="submit" class="btn-search">Search</button>
-      </form>
-    </div>
-
-  </div>
-</div>
-<div class="col-md-4">
-  <div class="shadow cstyle05">
-    <div class="fwi one"><img src="img/rome.jpg" alt=""/>
-
-      <div class="mhover none">
+          <div class="mhover none">
         <span class="icon">
         <a href="../list/list4.html">
           <img src="img/spacer.png" alt=""/>
         </a>
       </span>
+          </div>
+        </div>
+        <div class="ctitle">Rome
+          <a href="../list/list4.html">
+            <img src="img/spacer.png" alt=""/>
+          </a>
+          <span>$59.99</span>
+        </div>
       </div>
     </div>
-    <div class="ctitle">Rome
-      <a href="../list/list4.html">
-        <img src="img/spacer.png" alt=""/>
-      </a>
-      <span>$59.99</span>
-    </div>
-  </div>
-</div>
-<div class="col-md-4">
-  <div class="shadow cstyle05">
-    <div class="fwi one"><img src="img/surfer.jpg" alt=""/>
+    <div class="col-md-4">
+      <div class="shadow cstyle05">
+        <div class="fwi one"><img src="img/surfer.jpg" alt=""/>
 
-      <div class="mhover none">
-        <span class="icon"><a href="../list/list4.html"><img src="img/spacer.png" alt=""/></a></span>
+          <div class="mhover none">
+            <span class="icon"><a href="../list/list4.html"><img src="img/spacer.png" alt=""/></a></span>
+          </div>
+        </div>
+        <div class="ctitle">Cote d'azur<a href="../list/list4.html"><img src="img/spacer.png" alt=""/></a>
+          <span>$59.99</span>
+        </div>
       </div>
     </div>
-    <div class="ctitle">Cote d'azur<a href="../list/list4.html"><img src="img/spacer.png" alt=""/></a>
-      <span>$59.99</span>
-    </div>
   </div>
-</div>
-</div>
 </div>

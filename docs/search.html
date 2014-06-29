@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>search.coffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="app.html">
+                app.coffee
+              </a>
+            
+              
+              <a class="source" href="footer.html">
+                footer.coffee
+              </a>
+            
+              
+              <a class="source" href="header.html">
+                header.coffee
+              </a>
+            
+              
+              <a class="source" href="main.html">
+                main.coffee
+              </a>
+            
+              
+              <a class="source" href="expedia-api.html">
+                expedia-api.coffee
+              </a>
+            
+              
+              <a class="source" href="banner.html">
+                banner.coffee
+              </a>
+            
+              
+              <a class="source" href="lastminutelarge.html">
+                lastminutelarge.coffee
+              </a>
+            
+              
+              <a class="source" href="lastminutesmall.html">
+                lastminutesmall.coffee
+              </a>
+            
+              
+              <a class="source" href="search.html">
+                search.coffee
+              </a>
+            
+              
+              <a class="source" href="topdeals.html">
+                topdeals.coffee
+              </a>
+            
+              
+              <a class="source" href="home.html">
+                home.coffee
+              </a>
+            
+              
+              <a class="source" href="breadcrumb.html">
+                breadcrumb.coffee
+              </a>
+            
+              
+              <a class="source" href="filters.html">
+                filters.coffee
+              </a>
+            
+              
+              <a class="source" href="list.html">
+                list.coffee
+              </a>
+            
+              
+              <a class="source" href="hotels.html">
+                hotels.coffee
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>search.coffee</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-string">"use strict"</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Search Controller</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>angular.<span class="hljs-built_in">module</span>(<span class="hljs-string">"main.home"</span>).controller <span class="hljs-string">"SearchCtrl"</span>, [<span class="hljs-string">"$scope"</span>, <span class="hljs-string">"Expedia"</span>
+  <span class="hljs-function"><span class="hljs-params">($scope, Expedia)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Search form object - will get POSTed
+to API for Hotel List.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    $scope.search = {}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Check in and Checkout Calendars.  Uses Angular UI
+Bootstrap Date Picker
+<a href="http://angular-ui.github.io/bootstrap/#/datepicker">http://angular-ui.github.io/bootstrap/#/datepicker</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    $scope.<span class="hljs-function"><span class="hljs-title">today</span> = -&gt;</span>
+      $scope.dt = <span class="hljs-keyword">new</span> Date()
+
+    $scope.today()
+    $scope.showWeeks = <span class="hljs-literal">true</span>
+    $scope.<span class="hljs-function"><span class="hljs-title">toggleWeeks</span> = -&gt;</span>
+      $scope.showWeeks = <span class="hljs-keyword">not</span> $scope.showWeeks
+
+    $scope.<span class="hljs-function"><span class="hljs-title">clear</span> = -&gt;</span>
+      $scope.search.checkinDt = <span class="hljs-literal">null</span>
+      $scope.search.checkoutDt = <span class="hljs-literal">null</span>
+
+    $scope.<span class="hljs-function"><span class="hljs-title">toggleMin</span> = -&gt;</span>
+      $scope.minDate = (<span class="hljs-keyword">if</span> ($scope.minDate) <span class="hljs-keyword">then</span> <span class="hljs-literal">null</span> <span class="hljs-keyword">else</span> <span class="hljs-keyword">new</span> Date())
+
+    $scope.toggleMin()
+    $scope.<span class="hljs-function"><span class="hljs-title">openCheckIn</span> = <span class="hljs-params">($event)</span> -&gt;</span>
+      $event.preventDefault()
+      $event.stopPropagation()
+      $scope.checkInOpened = <span class="hljs-literal">true</span>
+
+    $scope.<span class="hljs-function"><span class="hljs-title">openCheckOut</span> = <span class="hljs-params">($event)</span> -&gt;</span>
+      $event.preventDefault()
+      $event.stopPropagation()
+      $scope.checkOutOpened = <span class="hljs-literal">true</span>
+
+    $scope.dateOptions =
+      <span class="hljs-string">"year-format"</span>: <span class="hljs-string">"'yy'"</span>
+      <span class="hljs-string">"starting-day"</span>: <span class="hljs-number">1</span>
+
+    $scope.formats = [
+      <span class="hljs-string">"dd-MMMM-yyyy"</span>
+      <span class="hljs-string">"yyyy/MM/dd"</span>
+      <span class="hljs-string">"M/d/yyyy"</span>
+      <span class="hljs-string">"shortDate"</span>
+    ]</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Date format required by Expedia API: ie,
+6/9/2014</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    $scope.format = $scope.formats[<span class="hljs-number">2</span>]</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Uses Angular UI Typeahead
+<a href="http://angular-ui.github.io/bootstrap/#/typeahead">http://angular-ui.github.io/bootstrap/#/typeahead</a>
+Gets locations from Expedia API</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    $scope.<span class="hljs-function"><span class="hljs-title">getLocation</span> = <span class="hljs-params">(val)</span> -&gt;</span>
+      Expedia.one<span class="hljs-function"><span class="hljs-params">(<span class="hljs-string">"geosearch"</span>, val)</span>.<span class="hljs-title">getList</span><span class="hljs-params">()</span>.<span class="hljs-title">then</span> <span class="hljs-params">(data)</span> -&gt;</span>
+        locations = []
+        locationInfoData = data.LocationInfoResponse.LocationInfos
+        <span class="hljs-keyword">if</span> locationInfoData[<span class="hljs-string">"@size"</span>] &gt; <span class="hljs-number">1</span>
+          angular.forEach locationInfoData.LocationInfo, <span class="hljs-function"><span class="hljs-params">(item)</span> -&gt;</span>
+            locations.push {<span class="hljs-attribute">label</span>: <span class="hljs-string">"<span class="hljs-subst">#{ item.city }</span>, <span class="hljs-subst">#{ item.countryName }</span>"</span>, <span class="hljs-attribute">value</span>: item.destinationId}
+        <span class="hljs-keyword">else</span>
+          locations.push {<span class="hljs-attribute">label</span>: <span class="hljs-string">"<span class="hljs-subst">#{ locationInfoData.LocationInfo.city }</span>, <span class="hljs-subst">#{ locationInfoData.LocationInfo.countryName.replace(<span class="hljs-string">'.'</span>, <span class="hljs-string">''</span>) }</span>"</span>, <span class="hljs-attribute">value</span>: locationInfoData.LocationInfo.destinationId}
+        locations</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Rooms array with search inputs</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    $scope.search.rooms = [{
+      <span class="hljs-attribute">numberOfAdults</span>: <span class="hljs-number">1</span>
+      <span class="hljs-attribute">numberOfChildren</span>: <span class="hljs-number">0</span>
+      <span class="hljs-attribute">showChildrenAges</span>: <span class="hljs-literal">false</span>
+      <span class="hljs-attribute">ages</span>: []
+    }]</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Adding a new room dynamically creates new inputs.
+This requires adding height to the search form.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    $scope.<span class="hljs-function"><span class="hljs-title">addRoom</span> = -&gt;</span>
+      $scope.search.rooms.push({
+        <span class="hljs-attribute">numberOfAdults</span>: <span class="hljs-number">1</span>
+        <span class="hljs-attribute">numberOfChildren</span>: <span class="hljs-number">0</span>
+        <span class="hljs-attribute">showChildrenAges</span>: <span class="hljs-literal">false</span>
+        <span class="hljs-attribute">ages</span>: []
+      })
+      addFormSpace <span class="hljs-number">65</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Adding children dynamically creates inputs to add
+ages for children. This requires adding height to
+the search form.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    $scope.<span class="hljs-function"><span class="hljs-title">childrenAges</span> = -&gt;</span>
+      numberOfChildren = parseInt(<span class="hljs-keyword">this</span>.room.numberOfChildren)
+      rowHeight = <span class="hljs-number">85</span>
+
+      <span class="hljs-keyword">this</span>.room.showChildrenAges = <span class="hljs-literal">true</span>
+
+      <span class="hljs-keyword">if</span> (numberOfChildren &gt; <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> [<span class="hljs-number">1.</span>.numberOfChildren]
+          <span class="hljs-keyword">this</span>.room.ages.push({
+            <span class="hljs-attribute">age</span>: <span class="hljs-string">'Age'</span>
+          })</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Calculating number of rows</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">if</span> _.indexOf([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], numberOfChildren) <span class="hljs-keyword">isnt</span> -<span class="hljs-number">1</span>
+        numberOfRows = <span class="hljs-number">1</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> _.indexOf([<span class="hljs-number">4</span>,<span class="hljs-number">5</span>], numberOfChildren) <span class="hljs-keyword">isnt</span> -<span class="hljs-number">1</span>
+        numberOfRows = <span class="hljs-number">2</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Smaller value is chosen - remove some height</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">if</span> <span class="hljs-property">@previousChildren</span> &gt; numberOfChildren</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>If set back to zero get rid of all extra height</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span> numberOfChildren <span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+          <span class="hljs-property">@previousChildren</span> = <span class="hljs-literal">undefined</span>
+          <span class="hljs-keyword">this</span>.room.showChildrenAges = <span class="hljs-literal">false</span>
+          <span class="hljs-keyword">if</span> <span class="hljs-property">@previousNumberOfRows</span> <span class="hljs-keyword">is</span> <span class="hljs-number">1</span>
+            removeFormSpace rowHeight
+          <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-property">@previousNumberOfRows</span> <span class="hljs-keyword">is</span> <span class="hljs-number">2</span>
+            removeFormSpace (rowHeight * <span class="hljs-number">2</span>)
+
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> numberOfChildren <span class="hljs-keyword">isnt</span> <span class="hljs-number">0</span>
+          <span class="hljs-keyword">if</span> <span class="hljs-property">@previousNumberOfRows</span> <span class="hljs-keyword">is</span> <span class="hljs-number">2</span> <span class="hljs-keyword">and</span> numberOfRows <span class="hljs-keyword">is</span> <span class="hljs-number">1</span>
+            removeFormSpace rowHeight</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Larger value is chosen - add some height</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-property">@previousChildren</span> &lt; numberOfChildren
+        <span class="hljs-keyword">if</span> <span class="hljs-property">@previousNumberOfRows</span> <span class="hljs-keyword">is</span> <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> numberOfRows <span class="hljs-keyword">is</span> <span class="hljs-number">2</span>
+          addFormSpace rowHeight
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-property">@previousChildren</span> <span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+          <span class="hljs-keyword">if</span> numberOfRows <span class="hljs-keyword">is</span> <span class="hljs-number">1</span>
+            addFormSpace rowHeight
+          <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> numberOfRows <span class="hljs-keyword">is</span> <span class="hljs-number">2</span>
+            addFormSpace (rowHeight * <span class="hljs-number">2</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Add some height</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-property">@previousChildren</span> <span class="hljs-keyword">is</span> <span class="hljs-literal">undefined</span>
+        <span class="hljs-keyword">if</span> numberOfRows <span class="hljs-keyword">is</span> <span class="hljs-number">1</span>
+          addFormSpace rowHeight
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> numberOfRows <span class="hljs-keyword">is</span> <span class="hljs-number">2</span>
+          addFormSpace (rowHeight * <span class="hljs-number">2</span>)
+
+      <span class="hljs-property">@previousChildren</span> = numberOfChildren
+      <span class="hljs-property">@previousNumberOfRows</span> = numberOfRows
+
+    $scope.<span class="hljs-function"><span class="hljs-title">removeRoom</span> = <span class="hljs-params">(index)</span> -&gt;</span>
+      $scope.search.rooms.splice(index, <span class="hljs-number">1</span>)
+      removeFormSpace <span class="hljs-number">65</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>Dynamic search form style values</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    $scope.formFooterHeight = <span class="hljs-number">261</span>
+    $scope.formContentHeight = <span class="hljs-number">263</span>
+
+    <span class="hljs-function"><span class="hljs-title">removeFormSpace</span> = <span class="hljs-params">(height)</span> -&gt;</span>
+      $scope.formContentHeight = $scope.formContentHeight - height
+      $scope.formFooterHeight = $scope.formFooterHeight - height
+
+    <span class="hljs-function"><span class="hljs-title">addFormSpace</span> = <span class="hljs-params">(height)</span> -&gt;</span>
+      $scope.formContentHeight = $scope.formContentHeight + height
+      $scope.formFooterHeight = $scope.formFooterHeight + height
+
+]</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
