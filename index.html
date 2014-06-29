@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Travel : Expedia API travel site" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Travel</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/jewelsjacobs/travel">View on GitHub</a>
+
+          <h1 id="project_title">Travel</h1>
+          <h2 id="project_tagline">Expedia API travel site</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/jewelsjacobs/travel/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/jewelsjacobs/travel/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="travel" class="anchor" href="#travel"><span class="octicon octicon-link"></span></a>Travel</h1>
+
+<p>Expedia API travel site</p>
+
+<h2>
+<a name="uses" class="anchor" href="#uses"><span class="octicon octicon-link"></span></a>Uses:</h2>
+
+<p>Angular JS + <a href="http://www.linemanjs.com">Lineman</a>.</p>
+
+<ol>
+<li>Template Precompilation into Angulars $templateCache using <code>grunt-angular-templates</code>
+</li>
+<li>A basic login, logout service bound to sample routes inside <code>config/server.js</code>
+</li>
+<li>Configured <a href="https://github.com/btford/grunt-ngmin">grunt-ngmin</a> so you don't have to fully qualify angular dependencies.</li>
+<li>Auto generated <a href="http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/">sourcemaps</a> with inlined sources via <a href="https://github.com/kozy4324/grunt-concat-sourcemap">grunt-concat-sourcemap</a> (you'll need to <a href="http://cl.ly/image/1d0X2z2u1E3b">enable sourcemaps</a> in Firefox/Chrome to see this)</li>
+<li>
+<a href="https://github.com/linemanjs/lineman-angular-template/tree/master/spec">Unit Tests</a> and <a href="https://github.com/linemanjs/lineman-angular-template/tree/master/spec-e2e">End-to-End Tests</a>
+</li>
+<li>Configuration to run <a href="https://github.com/juliemr/protractor">Protractor</a> for End-to-End Tests</li>
+<li>
+<a href="https://github.com/mgonto/restangular">Restangular</a> AngularJS module as opposed to $http or $resource</li>
+<li>Express / node.js Expedia API consumed via Lineman's server proxy</li>
+<li><a href="https://github.com/linemanjs/lineman-livereload">Livereload plugin</a></li>
+<li><a href="https://github.com/linemanjs/lineman-bower">Bower plugin</a></li>
+<li>CoffeeScript</li>
+<li>Bootstrap</li>
+<li>Angular UI Router</li>
+<li>CoffeLint</li>
+</ol><h2>
+<a name="instructions" class="anchor" href="#instructions"><span class="octicon octicon-link"></span></a>Instructions</h2>
+
+<ol>
+<li><code>$ git clone -b lineman https://git@bitbucket.org:jjacobs2000/travel.git</code></li>
+<li><code>$ cd travel</code></li>
+<li><code>$ sudo npm install -g lineman</code></li>
+<li><code>$ sudo npm install -g bower</code></li>
+<li><code>$ npm install</code></li>
+<li><code>$ bower install</code></li>
+</ol><h2>
+<a name="running-in-development-mode" class="anchor" href="#running-in-development-mode"><span class="octicon octicon-link"></span></a>Running in development mode</h2>
+
+<ol>
+<li><code>$ export NODE_ENV=development</code></li>
+<li><code>$ node server/server.js</code></li>
+<li><code>$ lineman run</code></li>
+<li>Your browser will open to localhost:8000</li>
+</ol><h2>
+<a name="running-in-production-mode" class="anchor" href="#running-in-production-mode"><span class="octicon octicon-link"></span></a>Running in production mode</h2>
+
+<ol>
+<li><code>$ export NODE_ENV=production | export PORT=80</code></li>
+<li><code>$ lineman build</code></li>
+<li>Deploy <code>server</code> and <code>dist</code> folders to external server.</li>
+<li><code>$ cd server</code></li>
+<li><code>$ npm install --production</code></li>
+<li>Run server/server.js script with <a href="http://labs.telasocial.com/nodejs-forever-daemon/">forever</a>
+</li>
+</ol><h2>
+<a name="running-tests" class="anchor" href="#running-tests"><span class="octicon octicon-link"></span></a>Running Tests</h2>
+
+<h1>
+<a name="note-tests-are-not-configured-yet-for-current-files--on-my-todo-list-along-with-running-on-travis-ci" class="anchor" href="#note-tests-are-not-configured-yet-for-current-files--on-my-todo-list-along-with-running-on-travis-ci"><span class="octicon octicon-link"></span></a>
+<em>NOTE</em>: Tests are not configured yet for current files.  On my TODO list, along with running on Travis CI.</h1>
+
+<p>Testing procedures based on <a href="http://www.github.com/davemo">@davemo</a>'s <a href="http://www.youtube.com/watch?v=UYVcY9EJcRs">Testing Strategies for Angular JS</a> screencast, and contains all the tests we wrote in the screencast and a few more!</p>
+
+<p>To run the unit tests:</p>
+
+<ol>
+<li>
+<code>lineman run</code> from 1 terminal window</li>
+<li>
+<code>lineman spec</code> from another terminal window, this will launch Testem and execute specs in Chrome</li>
+</ol><p>To run the end-to-end tests:</p>
+
+<ol>
+<li><code>npm install protractor</code></li>
+<li><code>brew install selenium-server-standalone</code></li>
+<li>Make sure you have chrome installed.</li>
+<li>
+<code>lineman run</code> from 1 terminal window</li>
+<li>
+<p><code>lineman grunt spec-e2e</code> from another terminal window</p>
+
+<p>Troubleshooting:</p>
+
+<p>If you see this error: Warning: there's no selenium server jar at the specified location,
+  you may need to change the selenium-server-standalone jar version in config/spec-e2e.js
+  to the actual you see in /usr/local/opt/selenium-server-standalone (brew users may have a libexec directory).</p>
+
+<p>If you see this error: Fatal error: The path to the driver executable must be set by the
+  webdriver.chrome.driver system property, you may need to download the chromedriver
+  (<a href="https://code.google.com/p/selenium/wiki/ChromeDriver">https://code.google.com/p/selenium/wiki/ChromeDriver</a>) and place it in /usr/local/bin (mac).</p>
+</li>
+</ol>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Travel maintained by <a href="https://github.com/jewelsjacobs">jewelsjacobs</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
