@@ -129,7 +129,7 @@ angular.<span class="hljs-built_in">module</span>(<span class="hljs-string">"mai
   <span class="hljs-string">"$httpProvider"</span>
   <span class="hljs-string">"$stateProvider"</span>
   <span class="hljs-string">"$urlRouterProvider"</span>
-  <span class="hljs-function"><span class="hljs-params">($routeProvider, $locationProvider, $httpProvider, $stateProvider)</span> -&gt;</span>
+<span class="hljs-function">  <span class="hljs-params">($routeProvider, $locationProvider, $httpProvider, $stateProvider)</span> -&gt;</span>
     <span class="hljs-keyword">delete</span> $httpProvider.defaults.headers.common[<span class="hljs-string">"X-Requested-With"</span>]
 
     $stateProvider.state <span class="hljs-string">"main"</span>,
@@ -148,7 +148,7 @@ angular.<span class="hljs-built_in">module</span>(<span class="hljs-string">"mai
     $locationProvider.html5Mode <span class="hljs-literal">true</span>
 ]).run [
   <span class="hljs-string">"$rootScope"</span>
-  <span class="hljs-function"><span class="hljs-params">($rootScope)</span> -&gt;</span>
+<span class="hljs-function">  <span class="hljs-params">($rootScope)</span> -&gt;</span>
     $rootScope.loading = <span class="hljs-literal">false</span>
 ]</pre></div></div>
             

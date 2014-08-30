@@ -132,7 +132,7 @@
             </div>
             
             <div class="content"><div class='highlight'><pre>angular.<span class="hljs-built_in">module</span>(<span class="hljs-string">"main.home"</span>).controller <span class="hljs-string">"SearchCtrl"</span>, [<span class="hljs-string">"$scope"</span>, <span class="hljs-string">"Expedia"</span>
-  <span class="hljs-function"><span class="hljs-params">($scope, Expedia)</span> -&gt;</span></pre></div></div>
+<span class="hljs-function">  <span class="hljs-params">($scope, Expedia)</span> -&gt;</span></pre></div></div>
             
         </li>
         
@@ -165,28 +165,28 @@ Bootstrap Date Picker
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    $scope.<span class="hljs-function"><span class="hljs-title">today</span> = -&gt;</span>
+            <div class="content"><div class='highlight'><pre>    $scope.t<span class="hljs-function"><span class="hljs-title">oday</span> = -&gt;</span>
       $scope.dt = <span class="hljs-keyword">new</span> Date()
 
     $scope.today()
     $scope.showWeeks = <span class="hljs-literal">true</span>
-    $scope.<span class="hljs-function"><span class="hljs-title">toggleWeeks</span> = -&gt;</span>
+    $scope.t<span class="hljs-function"><span class="hljs-title">oggleWeeks</span> = -&gt;</span>
       $scope.showWeeks = <span class="hljs-keyword">not</span> $scope.showWeeks
 
-    $scope.<span class="hljs-function"><span class="hljs-title">clear</span> = -&gt;</span>
+    $scope.c<span class="hljs-function"><span class="hljs-title">lear</span> = -&gt;</span>
       $scope.search.checkinDt = <span class="hljs-literal">null</span>
       $scope.search.checkoutDt = <span class="hljs-literal">null</span>
 
-    $scope.<span class="hljs-function"><span class="hljs-title">toggleMin</span> = -&gt;</span>
+    $scope.t<span class="hljs-function"><span class="hljs-title">oggleMin</span> = -&gt;</span>
       $scope.minDate = (<span class="hljs-keyword">if</span> ($scope.minDate) <span class="hljs-keyword">then</span> <span class="hljs-literal">null</span> <span class="hljs-keyword">else</span> <span class="hljs-keyword">new</span> Date())
 
     $scope.toggleMin()
-    $scope.<span class="hljs-function"><span class="hljs-title">openCheckIn</span> = <span class="hljs-params">($event)</span> -&gt;</span>
+    $scope.o<span class="hljs-function"><span class="hljs-title">penCheckIn</span> = <span class="hljs-params">($event)</span> -&gt;</span>
       $event.preventDefault()
       $event.stopPropagation()
       $scope.checkInOpened = <span class="hljs-literal">true</span>
 
-    $scope.<span class="hljs-function"><span class="hljs-title">openCheckOut</span> = <span class="hljs-params">($event)</span> -&gt;</span>
+    $scope.o<span class="hljs-function"><span class="hljs-title">penCheckOut</span> = <span class="hljs-params">($event)</span> -&gt;</span>
       $event.preventDefault()
       $event.stopPropagation()
       $scope.checkOutOpened = <span class="hljs-literal">true</span>
@@ -233,8 +233,8 @@ Gets locations from Expedia API</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    $scope.<span class="hljs-function"><span class="hljs-title">getLocation</span> = <span class="hljs-params">(val)</span> -&gt;</span>
-      Expedia.one<span class="hljs-function"><span class="hljs-params">(<span class="hljs-string">"geosearch"</span>, val)</span>.<span class="hljs-title">getList</span><span class="hljs-params">()</span>.<span class="hljs-title">then</span> <span class="hljs-params">(data)</span> -&gt;</span>
+            <div class="content"><div class='highlight'><pre>    $scope.g<span class="hljs-function"><span class="hljs-title">etLocation</span> = <span class="hljs-params">(val)</span> -&gt;</span>
+      Expedia.one(<span class="hljs-string">"geosearch"</span>, val).getList().<span class="hljs-keyword">then</span> <span class="hljs-function"><span class="hljs-params">(data)</span> -&gt;</span>
         locations = []
         locationInfoData = data.LocationInfoResponse.LocationInfos
         <span class="hljs-keyword">if</span> locationInfoData[<span class="hljs-string">"@size"</span>] &gt; <span class="hljs-number">1</span>
@@ -278,7 +278,7 @@ This requires adding height to the search form.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    $scope.<span class="hljs-function"><span class="hljs-title">addRoom</span> = -&gt;</span>
+            <div class="content"><div class='highlight'><pre>    $scope.a<span class="hljs-function"><span class="hljs-title">ddRoom</span> = -&gt;</span>
       $scope.search.rooms.push({
         <span class="hljs-attribute">numberOfAdults</span>: <span class="hljs-number">1</span>
         <span class="hljs-attribute">numberOfChildren</span>: <span class="hljs-number">0</span>
@@ -302,7 +302,7 @@ the search form.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    $scope.<span class="hljs-function"><span class="hljs-title">childrenAges</span> = -&gt;</span>
+            <div class="content"><div class='highlight'><pre>    $scope.c<span class="hljs-function"><span class="hljs-title">hildrenAges</span> = -&gt;</span>
       numberOfChildren = parseInt(<span class="hljs-keyword">this</span>.room.numberOfChildren)
       rowHeight = <span class="hljs-number">85</span>
 
@@ -416,7 +416,7 @@ the search form.</p>
       <span class="hljs-property">@previousChildren</span> = numberOfChildren
       <span class="hljs-property">@previousNumberOfRows</span> = numberOfRows
 
-    $scope.<span class="hljs-function"><span class="hljs-title">removeRoom</span> = <span class="hljs-params">(index)</span> -&gt;</span>
+    $scope.r<span class="hljs-function"><span class="hljs-title">emoveRoom</span> = <span class="hljs-params">(index)</span> -&gt;</span>
       $scope.search.rooms.splice(index, <span class="hljs-number">1</span>)
       removeFormSpace <span class="hljs-number">65</span></pre></div></div>
             
@@ -435,12 +435,12 @@ the search form.</p>
             
             <div class="content"><div class='highlight'><pre>    $scope.formFooterHeight = <span class="hljs-number">261</span>
     $scope.formContentHeight = <span class="hljs-number">263</span>
-
-    <span class="hljs-function"><span class="hljs-title">removeFormSpace</span> = <span class="hljs-params">(height)</span> -&gt;</span>
+<span class="hljs-function">
+    <span class="hljs-title">removeFormSpace</span> = <span class="hljs-params">(height)</span> -&gt;</span>
       $scope.formContentHeight = $scope.formContentHeight - height
       $scope.formFooterHeight = $scope.formFooterHeight - height
-
-    <span class="hljs-function"><span class="hljs-title">addFormSpace</span> = <span class="hljs-params">(height)</span> -&gt;</span>
+<span class="hljs-function">
+    <span class="hljs-title">addFormSpace</span> = <span class="hljs-params">(height)</span> -&gt;</span>
       $scope.formContentHeight = $scope.formContentHeight + height
       $scope.formFooterHeight = $scope.formFooterHeight + height
 
