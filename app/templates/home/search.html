@@ -9,7 +9,7 @@
             <div id="hotel" ng-style="{'height': formContentHeight + 'px'}" class="tab-pane">
 
               <!--Typeahead-->
-              <span class="opensans size18">Where do you want to go?</span>
+              <span class="opensans size18">Go here or else!</span>
               <input type="text" ng-model="search.location" typeahead-min-length="3" placeholder="Greece"
                      typeahead="locations as locations.label for locations in getLocation($viewValue)" class="form-control">
               <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
@@ -44,10 +44,11 @@
                   <div class="w50percent">
                     <div class="wh90percent textleft">
                       <span class="opensans size13"><b>ROOM {{$index + 1}}</b></span><br/>
-
-                      <div class="addroom1 block"><a href="#" ng-click="addRoom()" class="grey">+ Add room</a></div>
-                      <div ng-show="$index > 0" class="addroom1 block"><a href="#" ng-click="removeRoom($index)"
-                                                                          class="grey">- Remove room</a></div>
+                      <div ng-show="$index <= 1">
+                        <div ng-if="$index <= 2" class="addroom1 block"><a href="#" ng-click="addRoom()" class="grey">+ Add room</a></div>
+                        <div ng-show="$index > 0" class="addroom1 block"><a href="#" ng-click="removeRoom($index)"
+                                                                            class="grey">- Remove room</a></div>
+                      </div>
                     </div>
                   </div>
 
@@ -69,14 +70,12 @@
                       <div class="w50percentlast">
                         <div class="wh90percent textleft right ohidden">
                           <!--Add Child-->
-                          <span class="opensans size13"><b>Child</b></span>
+                          <span class="opensans size13"><b>Children</b></span>
                           <select ng-change="childrenAges()" ng-model="room.numberOfChildren" class="form-control">
                             <option>0</option>
                             <option selected>1</option>
                             <option>2</option>
                             <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
                           </select>
                         </div>
                       </div>
@@ -89,7 +88,7 @@
                     <div ng-class="{'w33percent': $index != 2,  'w34percentlast':  $index == 2}" ng-repeat="age in room.ages">
                       <div class="wh32percent child-age-marg textleft left ohidden">
                         <!--Add Child-->
-                        <span class="opensans size13"><b>Child {{ $index + 1 }} Age</b></span>
+                        <span class="opensans size13"><b>Child {{ $index + 1 }}</b></span>
                         <select ng-model="age" class="form-control">
                           <option>Age</option>
                           <option selected> > 1</option>
