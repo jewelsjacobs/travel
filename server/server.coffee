@@ -5,6 +5,11 @@ routes = require('./routes')
 api = require("./routes/api")
 app = express()
 ejs = require('ejs')
+bodyParser = require('body-parser')
+cookieParser = require('cookie-parser')
+session = require('cookie-session')
+logger = require('morgan')
+methodOverride = require('method-override')
 
 process.env.NODE_ENV = process.env.NODE_ENV or "development"
 
@@ -12,29 +17,30 @@ process.env.NODE_ENV = process.env.NODE_ENV or "development"
 app.set "port", process.env.PORT or 8888
 app.set "view engine", "ejs"
 app.engine "html", ejs.renderFile
-app.use express.cookieParser()
-app.use express.session {secret: '1234567890QWERTY'}
-app.use express.logger("dev")
-app.use express.urlencoded()
-app.use express.json()
-app.use express.methodOverride()
-app.use app.router
+app.use cookieParser
+app.use session 
+app.use logger(':method :url :status :response-time ms - :res[content-length]')
+app.use bodyParser.urlencoded({ extended: false })
+app.use bodyParser.json()
+app.use methodOverride()
+#app.use app.router
 
+switch process.env.NODE_ENV 
 # static files production
-app.configure "production", ->
-  app.set "views", "#{__dirname}/../dist/"
-  app.use express.static("#{__dirname}/../dist")
-  app.use (req, res) ->
-    res.render "index.html",
+	when "production" 
+  	app.set "views", "#{__dirname}/../dist/"
+  	app.use express.static("#{__dirname}/../dist")
+  	app.use (req, res) ->
+    	res.render "index.html",
       env: "production"
 
 # static files development
-app.configure "development", ->
-app.set "views", "#{__dirname}/../generated/"
-app.use express.static("#{__dirname}/../generated")
-app.use (req, res) ->
-  res.render "index.html",
-    env: "development"
+	when "development"
+		app.set "views", "#{__dirname}/../generated/"
+		app.use express.static("#{__dirname}/../generated")
+		app.use (req, res) ->
+  		res.render "index.html",
+    		env: "development"
 
 #Expedia API
 
