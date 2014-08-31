@@ -1,79 +1,14 @@
+express = require('express')
+api = express.Router()
 expedia = require("expedia")(
   apiKey: "hjmtgvdffmrdhjpq5tnscv36"
   cid: "55505"
 )
 
-# Takes a search string as an argument, and returns location information available for performing a hotel search
-# a complete list of options is available at http://developer.ean.com/docs/geo-functions/
-exports.geoSearch = (req, res) ->
-  options =
-    customerSessionId: req.sessionID
-    customerIpAddress: req.ip
-    customerUserAgent: req.headers['user-agent']
-    LocationInfoRequest:
-      locale: "en_US"
-      destinationString: req.params.location
-
-  expedia.geoSearch options, (err, response) ->
-    if err
-      res.status(500).send err
-      return
-    res.send response
-    return
-
-  return
-
-
-# a complete list of options is available at http://developer.ean.com/docs/payment-types/
-exports.acceptedPayments = (req, res) ->
-  options =
-    customerSessionId: req.sessionID
-    customerIpAddress: req.ip
-    customerUserAgent: req.headers['user-agent']
-    HotelPaymentRequest:
-      hotelId: "122212"
-      supplierType: "E"
-      rateType: "MerchantStandard"
-
-  expedia.hotels.acceptedPayments options, (err, response) ->
-    if err
-      res.status(500).send err
-      return
-    res.send response
-    return
-
-  return
-
-
-# a complete list of options is available at http://developer.ean.com/docs/room-avail/
-exports.hotelAvailability = (req, res) ->
-  
-  # a complete list of options is available at http://developer.ean.com/docs/room-avail/
-  options =
-    customerSessionId: req.sessionID
-    customerIpAddress: req.ip
-    customerUserAgent: req.headers['user-agent']
-    HotelRoomAvailabilityRequest:
-      hotelId: "106347"
-      arrivalDate: "9/30/2013"
-      departureDate: "10/2/2013"
-      includeDetails: "true"
-      RoomGroup:
-        Room:
-          numberOfAdults: "2"
-
-  expedia.hotels.availability options, (err, response) ->
-    if err
-      res.status(500).send err
-      return
-    res.send response
-    return
-
-  return
 
 
 # a complete list of options is available at http://developer.ean.com/docs/hotel-info/
-exports.hotelInfo = (req, res) ->
+hotelInfo = (req, res) ->
   options =
     customerSessionId: req.sessionID
     customerIpAddress: req.ip
@@ -85,15 +20,10 @@ exports.hotelInfo = (req, res) ->
   expedia.hotels.info options, (err, response) ->
     if err
       res.status(500).send err
-      return
     res.send response
-    return
-
-  return
-
 
 # a complete list of options is available at http://developer.ean.com/docs/hotel-list/
-exports.hotelList = (req, res) ->
+hotelList = (req, res) ->
   options =
     customerSessionId: req.sessionID
     customerIpAddress: req.ip
@@ -105,33 +35,25 @@ exports.hotelList = (req, res) ->
       arrivalDate: "7/15/2014"
       departureDate: "7/17/2014"
       RoomGroup: [
-        {
           Room:
             numberOfAdults: "2"
             numberOfChildren: "2"
             childAges: "5, 3"
-        }
-        {
+      ,
           Room:
             numberOfAdults: "3"
             numberOfChildren: "1"
             childAges: "5"
-        }
       ]
       numberOfResults: "2"
 
   expedia.hotels.list options, (err, response) ->
     if err
       res.status(500).send err
-      return
     res.send response
-    return
-
-  return
-
 
 # a complete list of options is available at http://developer.ean.com/docs/room-images/
-exports.hotelRoomImages = (req, res) ->
+hotelRoomImages = (req, res) ->
   options =
     customerSessionId: req.sessionID
     customerIpAddress: req.ip
@@ -142,15 +64,10 @@ exports.hotelRoomImages = (req, res) ->
   expedia.hotels.roomImages options, (err, response) ->
     if err
       res.status(500).send err
-      return
     res.send response
-    return
-
-  return
-
 
 # Simple echo server, response should match input
-exports.ping = (req, res) ->
+ping = (req, res) ->
   options =
     customerSessionId: req.sessionID
     customerIpAddress: req.ip
@@ -161,15 +78,11 @@ exports.ping = (req, res) ->
   expedia.ping options, (err, response) ->
     if err
       res.status(500).send err
-      return
     res.send response
-    return
-
-  return
 
 
 # a complete list of options is available at http://developer.ean.com/docs/book-reservation/
-exports.reservationBook = (req, res) ->
+reservationBook = (req, res) ->
   options =
     customerSessionId: req.sessionID
     customerIpAddress: req.ip
@@ -213,15 +126,10 @@ exports.reservationBook = (req, res) ->
   expedia.reservation.book options, (err, response) ->
     if err
       res.status(500).send err
-      return
     res.send response
-    return
-
-  return
-
 
 # a complete list of options is available at http://developer.ean.com/docs/cancel-reservation/
-exports.reservationCancel = (req, res) ->
+reservationCancel = (req, res) ->
   options =
     customerSessionId: req.sessionID
     customerIpAddress: req.ip
@@ -235,15 +143,10 @@ exports.reservationCancel = (req, res) ->
   expedia.reservation.cancel options, (err, response) ->
     if err
       res.status(500).send err
-      return
     res.send response
-    return
-
-  return
-
 
 # a complete list of options is available at http://developer.ean.com/docs/request-itinerary/
-exports.reservationGet = (req, res) ->
+reservationGet = (req, res) ->
   options =
     customerSessionId: req.sessionID
     customerIpAddress: req.ip
@@ -255,8 +158,21 @@ exports.reservationGet = (req, res) ->
   expedia.reservation.get options, (err, response) ->
     if err
       res.status(500).send err
-      return
     res.send response
-    return
 
-  return
+api.use (req, res, next) ->
+  console.log req.method req.url
+  next()
+
+api.get "/geosearch/:location", geoSearch
+api.get "/payments", acceptedPayments
+api.get "/hotel/avail", hotelAvailability
+api.get "/hotel/info", hotelInfo
+api.get "/hotel/list", hotelList
+api.get "/hotel/images", hotelRoomImages
+api.get "/ping", ping
+api.post "/res/book", reservationBook
+api.get "/res/cancel", reservationCancel
+api.get "/res/get", reservationGet
+
+module.exports = api

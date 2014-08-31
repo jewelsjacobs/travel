@@ -304,15 +304,17 @@ the search form.</p>
             
             <div class="content"><div class='highlight'><pre>    $scope.c<span class="hljs-function"><span class="hljs-title">hildrenAges</span> = -&gt;</span>
       numberOfChildren = parseInt(<span class="hljs-keyword">this</span>.room.numberOfChildren)
-      rowHeight = <span class="hljs-number">85</span>
-
+      rowHeight = <span class="hljs-number">95</span>
       <span class="hljs-keyword">this</span>.room.showChildrenAges = <span class="hljs-literal">true</span>
+      <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> [<span class="hljs-number">1.</span>.numberOfChildren]
+        <span class="hljs-keyword">this</span>.room.ages.push({
+          <span class="hljs-attribute">age</span>: <span class="hljs-string">'Age'</span>
+        })
+      addFormSpace rowHeight
 
-      <span class="hljs-keyword">if</span> (numberOfChildren &gt; <span class="hljs-number">0</span>)
-        <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> [<span class="hljs-number">1.</span>.numberOfChildren]
-          <span class="hljs-keyword">this</span>.room.ages.push({
-            <span class="hljs-attribute">age</span>: <span class="hljs-string">'Age'</span>
-          })</pre></div></div>
+    $scope.r<span class="hljs-function"><span class="hljs-title">emoveRoom</span> = <span class="hljs-params">(index)</span> -&gt;</span>
+      $scope.search.rooms.splice(index, <span class="hljs-number">1</span>)
+      removeFormSpace <span class="hljs-number">65</span></pre></div></div>
             
         </li>
         
@@ -322,112 +324,6 @@ the search form.</p>
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-10">&#182;</a>
-              </div>
-              <p>Calculating number of rows</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">if</span> _.indexOf([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], numberOfChildren) <span class="hljs-keyword">isnt</span> -<span class="hljs-number">1</span>
-        numberOfRows = <span class="hljs-number">1</span>
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> _.indexOf([<span class="hljs-number">4</span>,<span class="hljs-number">5</span>], numberOfChildren) <span class="hljs-keyword">isnt</span> -<span class="hljs-number">1</span>
-        numberOfRows = <span class="hljs-number">2</span></pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-11">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-11">&#182;</a>
-              </div>
-              <p>Smaller value is chosen - remove some height</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">if</span> <span class="hljs-property">@previousChildren</span> &gt; numberOfChildren</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-12">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-12">&#182;</a>
-              </div>
-              <p>If set back to zero get rid of all extra height</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span> numberOfChildren <span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
-          <span class="hljs-property">@previousChildren</span> = <span class="hljs-literal">undefined</span>
-          <span class="hljs-keyword">this</span>.room.showChildrenAges = <span class="hljs-literal">false</span>
-          <span class="hljs-keyword">if</span> <span class="hljs-property">@previousNumberOfRows</span> <span class="hljs-keyword">is</span> <span class="hljs-number">1</span>
-            removeFormSpace rowHeight
-          <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-property">@previousNumberOfRows</span> <span class="hljs-keyword">is</span> <span class="hljs-number">2</span>
-            removeFormSpace (rowHeight * <span class="hljs-number">2</span>)
-
-        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> numberOfChildren <span class="hljs-keyword">isnt</span> <span class="hljs-number">0</span>
-          <span class="hljs-keyword">if</span> <span class="hljs-property">@previousNumberOfRows</span> <span class="hljs-keyword">is</span> <span class="hljs-number">2</span> <span class="hljs-keyword">and</span> numberOfRows <span class="hljs-keyword">is</span> <span class="hljs-number">1</span>
-            removeFormSpace rowHeight</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-13">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-13">&#182;</a>
-              </div>
-              <p>Larger value is chosen - add some height</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-property">@previousChildren</span> &lt; numberOfChildren
-        <span class="hljs-keyword">if</span> <span class="hljs-property">@previousNumberOfRows</span> <span class="hljs-keyword">is</span> <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> numberOfRows <span class="hljs-keyword">is</span> <span class="hljs-number">2</span>
-          addFormSpace rowHeight
-        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-property">@previousChildren</span> <span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
-          <span class="hljs-keyword">if</span> numberOfRows <span class="hljs-keyword">is</span> <span class="hljs-number">1</span>
-            addFormSpace rowHeight
-          <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> numberOfRows <span class="hljs-keyword">is</span> <span class="hljs-number">2</span>
-            addFormSpace (rowHeight * <span class="hljs-number">2</span>)</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-14">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-14">&#182;</a>
-              </div>
-              <p>Add some height</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-property">@previousChildren</span> <span class="hljs-keyword">is</span> <span class="hljs-literal">undefined</span>
-        <span class="hljs-keyword">if</span> numberOfRows <span class="hljs-keyword">is</span> <span class="hljs-number">1</span>
-          addFormSpace rowHeight
-        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> numberOfRows <span class="hljs-keyword">is</span> <span class="hljs-number">2</span>
-          addFormSpace (rowHeight * <span class="hljs-number">2</span>)
-
-      <span class="hljs-property">@previousChildren</span> = numberOfChildren
-      <span class="hljs-property">@previousNumberOfRows</span> = numberOfRows
-
-    $scope.r<span class="hljs-function"><span class="hljs-title">emoveRoom</span> = <span class="hljs-params">(index)</span> -&gt;</span>
-      $scope.search.rooms.splice(index, <span class="hljs-number">1</span>)
-      removeFormSpace <span class="hljs-number">65</span></pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-15">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
               <p>Dynamic search form style values</p>
 
