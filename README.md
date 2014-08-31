@@ -31,7 +31,7 @@ Angular JS + [Lineman](http://www.linemanjs.com).
 
 ## Running in development mode
 1. `$ export NODE_ENV=development`
-2. `$ node server/server.js`
+2. `$ node server/app.js`
 3. `$ lineman run`
 4. Your browser will open to localhost:8000
 
